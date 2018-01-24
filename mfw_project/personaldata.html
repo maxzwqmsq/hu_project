@@ -1,30 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>个人资料</title>
- 	 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
- 	<link rel="stylesheet" href="css/loupan.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 </head>
+
 <body>
-	<div style="position: fixed;z-index: 100;width: 100%;top:0;left: 0">
- 	<div class="nav">
-        <p>
-            <a href="shouye.html" class="back"><img src="images/返回.png"></a>
-            <a href="#" class="lb">个人资料</a>
-        </p>
+    <div style="position: fixed;z-index: 100;width: 100%;top:0;left: 0">
+        <div class="nav">
+            <p>
+                <a href="shouye.html" class="back"><img src="images/返回.png"></a>
+            </p>
+            <p>
+                <a href="#" class="title">个人资料</a>
+            </p>
+        </div>
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>头像</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <img src="images/qq@2x.png" alt="">
+                </div>
+            </a>
+            <div class="gray"></div>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>用户名</p>
+                </div>
+                <div class="weui-cell__ft">
+                    葫芦
+                </div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>昵称</p>
+                </div>
+                <div class="weui-cell__ft">
+                    小精钢
+                </div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+
+                <div class="weui-cell__bd">
+                    <p>性别</p>
+                </div>
+               <!--  <div class="">
+                    <input type="radio" name="sex">男
+                    <input type="radio" name="sex">女
+                </div> -->
+                <div class="weui-cells weui-cells_checkbox">
+                  <label class="weui-cell weui-check__label" style="float:left" for="s11">
+                    <div class="weui-cell__hd">
+                      <input type="radio" class="weui-check" name="checkbox1" id="s11" checked="checked">
+                      <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                      <p>男</p>
+                    </div>
+                  </label>
+                  <label class="weui-cell weui-check__label" style="float:left;" for="s12">
+                    <div class="weui-cell__hd">
+                      <input type="radio" name="checkbox1" class="weui-check" id="s12">
+                      <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd">
+                      <p>女</p>
+                    </div>
+                  </label>
+                </div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>出生日期</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="text" id="data-pick" />
+                </div>
+            </a>
+            <div class="gray"></div>
+        </div>
     </div>
-	<div class="row">
-		
-	</div>
-	</div>
 </body>
 <script>
-   
+$("#data-pick").calendar();
 </script>
+
 </html>
 <style>
+#data-pick {
+    border: none;
+    font-size: 1em;
+    text-align: right;
+}
 
+.nav {
+    display: flex;
+    width: 100%;
+    background: #4faafd;
+}
+
+
+.nav p {
+    flex: 1;
+    text-align: left;
+}
+
+.nav p a {
+    display: inline-block;
+    font-size: 1rem;
+    color: white;
+    line-height: 2.5rem;
+}
+
+.back{
+    margin-left: 1em;
+}
+.back>img{
+    position: relative;
+    top:3px;
+}
+.title{
+    margin-left:-2em;
+}
+.weui-cells{
+    margin-top: 0;
+}
+
+.gray{
+    height: 10px;
+    background: #EEEEEE;
+}
+.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before {
+    color: #4FAAFD;
+}
 </style>

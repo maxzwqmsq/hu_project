@@ -9,14 +9,63 @@
     <script src="js/rem.js"></script>
 </head>
 <body>
+    <div style="position: fixed;z-index: 100;width: 100%;top:0;left: 0">
+        <div class="nav">
+            <p>
+                <a href="shouye.html" class="back"><img src="images/返回.png"></a>
+            </p>
+            <p>
+                <a href="#" class="title">买房问答</a>
+            </p>
+            <p>
+                <a href="#" class="search">
+                    <img src="images/搜索@2x.png" alt="">
+                </a>
+            </p>
+        </div>
+    </div>
     <div class="ques_label">
-
     </div>
     <ul class="ques_body">
-
     </ul>
     <div class="ques_footer">
         我要提问
     </div>
 </body>
+
 </html>
+<style>
+    .nav {
+    display: flex;
+    width: 100%;
+    background: #4faafd;
+}
+
+
+.nav p {
+    flex: 1;
+    text-align: left;
+}
+
+.nav p a {
+    display: inline-block;
+    font-size: 0.7em;
+    color: white;
+    line-height: 2em;
+    text-decoration: none;
+}
+
+.back{
+    margin-left: 0.5em;
+}
+.back>img{
+    position: relative;
+    top:3px;
+}
+.title{
+    margin-left:-2em;
+}
+.search{
+    margin-right: 1em;
+}
+</style>
