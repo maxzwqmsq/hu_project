@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/rem.js"></script>
+    <style>
+        #myModal{
+            width: 100%;
+        }
+        .modal-body{
+            margin: 0 auto;
+            padding-left: 20%;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+</div>
+<form action="#">
+    <div>
+        <span>手机号码</span>
+        <input type="text" name="phone1" class="sj" required="required" placeholder="输入手机号码" onfocus="this.placeholder=''" onblur="this.placeholder='输入手机号码'">
+    </div>
+    <div>
+        <span>验证码</span>
+        <input type="text" class="sj" required="required" name="yz" placeholder="输入验证码" onfocus="this.placeholder=''" onblur="this.placeholder='输入验证码'">
+        <a href="#" class="yzm">获取验证码</a>
+    </div>
+    <div>
+        <span>设置密码</span>
+        <input type="password" name="pwd1" class="sj" required="required" placeholder="至少6个数字或..." onfocus="this.placeholder=''" onblur="this.placeholder='至少6个数字或...'">
+        <img src="images/yc.png" alt="" class="kejian">
+    </div>
+    <div>
+        <span>确认密码</span>
+        <input type="password" name="pwd2" class="sj" required="required" placeholder="再次输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='再次输入密码'">
+        <img src="images/yc.png" alt="" class="kj2">
+    </div>
+</form>
+<div class="xieyi">
+    <p class="ckxy">
+        <img src="images/wgx.png" alt="" class="cx">
+        <span>我已阅读用户协议</span>
+    </p>
+    <a href="#" class="djxy">点击查看用户协议</a>
+</div>
+<input type="button" class="login rr" value="完成">
+</body>
+</html>
+<script>
+    $(".yzm").click(function () {
+        phone1=$("input[name='phone1']").val();
+        mima=$("input[name='pwd1']").val();
+        mima2=$("input[name='pwd2']").val();
+        function isPhoneNo(phone) {
+            var pattern = /^1[34578]\d{9}$/;
+            return pattern.test(phone);
+        }
+        if(phone1===" "){
+            alert("手机号不能为空！");
+        }else if(!isPhoneNo(phone1)){
+            alert("手机号格式不正确！");
+        }else{
+            $.ajax({
+                url:"http://120.27.215.48:8081/duifang/servlet/Obtainsms",
+                data:"opt=verification&phone="+phone1,
+                type:"post",
+                success:function (res,status) {
+                    console.log(res);
+                    if(res.code===200){
+                        alert("验证码发送成功！");
+                        var that=$(this);
+                        var time=60;
+                        var timer=setInterval(function () {
+                            if(time<=0){
+                                clearInterval(timer);
+                                that.html("获取验证码");
+                            }else{
+                                time--;
+                                that.html(time);
+                            }
+                        },1000);
+                        $(".rr").click(function () {
+                            var mima=res.data;//获取验证码
+                            yzz=$("input[name='yz']").val();
+                            console.log(yzz);
+                            if(mima==yzz){
+                                    if($("input[name='pwd1']").val()===$("input[name='pwd2']").val()){
+                                        if($(".cx").attr("src")==="images/gx1.png"){
+                                            $.ajax({
+                                                url:"http://120.27.215.48:8081/duifang/servlet/Login",
+                                                data:"opt=register&phone="+phone1+"&type=0&password="+$("input[name='mima']").val()+"&auth_code="+yzz,
+                                                type:"post",
+                                                success:function (res,status) {
+                                                    console.log(res);
+                                                    if(res.code===200){
+                                                        alert("注册成功！");
+                                                        localStorage.setItem("zhanghao",$("input[name='phone1']").val());
+                                                        localStorage.setItem("passwd",$("input[name='pwd1']").val());
+                                                        $(window).attr("location","login.html");
+                                                    }else{
+                                                        alert(res.message);
+                                                    }
+                                                }
+                                            });
+                                        }else{
+                                            alert("请先阅读协议!");
+                                        }
+                                    }else{
+                                        alert("密码不一致！");
+                                }
+                            }else if(mima!=yzz){
+                                alert("验证码有误！");
+                            }
+                        })
+                    }else if(res.code===203){
+                        alert(res.message);
+                    }else{
+                        alert(res.message);
+                    }
+                }
+            })
+        }
+    });
+    $(".rr").click(function () {
+        mima=$("input[name='pwd1']").val();
+        mima2=$("input[name='pwd2']").val();
+        yzz=$("input[name='yz']").val();
+        if(mima.length>16){
+            alert("密码超出16位");
+        }else if(mima.length<6){
+            alert("密码长度过短");
+        }else if(!yzz){
+            alert("验证码有误");
+        }else if(mima!=mima2){
+            alert("密码不一致");
+        }else if($(".cx").attr("src")==="images/wgx.png"){
+            alert("请先阅读协议");
+        }
+    });
+    $(".kejian").click(function () {
+        if($(this).attr("src")==="images/yc.png"){
+            $(this).attr("src","images/可见@2x.png");
+            $("input[name='pwd1']").attr("type","text");
+        }else{
+            $(this).attr("src","images/yc.png");
+            $("input[name='pwd1']").attr("type","password");
+        }
+    });
+    $(".kj2").click(function () {
+        if($(this).attr("src")==="images/yc.png"){
+            $(this).attr("src","images/可见@2x.png");
+            $("input[name='pwd2']").attr("type","text");
+        }else{
+            $(this).attr("src","images/yc.png");
+            $("input[name='pwd2']").attr("type","password");
+        }
+    });
+    $(".cx").click(function () {
+        if($(this).attr("src")==="images/wgx.png"){
+            $(this).attr("src","images/gx1.png");
+        }else{
+            $(this).attr("src","images/wgx.png");
+        }
+    })
+</script>

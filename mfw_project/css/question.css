@@ -1,0 +1,153 @@
+html{
+    font-size: 10px;
+}
+body{
+    font:1.4rem "微软雅黑 Light";
+}
+.ques_title{
+    width: 100%;
+    height: 36rem;
+    margin: 0 auto;
+    background: url("../images/wj.png") no-repeat;
+    background-size: 100%;
+}
+.ques_box{
+    width: 100%;
+    min-height: 25rem;
+    margin: 0 auto;
+}
+.ques_body{
+    width: 81%;
+    min-height: 15.5rem;
+    margin: 2rem 2rem;
+    font-size: 2rem;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left:6rem;
+}
+.ques_body h4{
+    width:80%;
+    height:auto;
+    margin: -1rem 0 1rem 0;
+    font-size: 2rem;
+    font-weight: normal;
+}
+label{
+    font-size: 2rem;
+}
+.submit,.last{
+    float: left;
+    width: 30rem;
+    height: 10rem;
+    margin: 1rem auto;
+    line-height: 10rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+.submit a,.last a{
+    text-decoration: none;
+    font-size: 3rem;
+}
+.submit a:hover,.last a:hover{
+    color: white;
+}
+.offset {
+    box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+}
+.offset:hover, .offset:focus {
+    box-shadow: 0 0 0 0 var(--hover), inset 30em 3.5em 0 0 var(--hover);
+    color: white;
+}
+.offset {
+    --color: #19bc8b;
+    --hover: skyblue;
+}
+@media  (min-device-width : 10px) and (max-width:375px){
+    .ques_title{
+        width: 100%;
+        height: 16rem;
+    }
+    .ques_body{
+        width: 80%;
+        min-height: 0;
+        padding-top: 10rem;
+        padding-bottom: 5rem;
+        padding-left:2rem;
+        font-size: 1.6rem;
+    }
+    .ques_box {
+        width: 100%;
+        min-height: 15rem;
+        border: none;
+    }
+    .ques_body h4{
+        width:100%;
+        height:auto;
+        margin: -5rem 0 1rem 0;
+        font-size: 2rem;
+    }
+    .submit,.last{
+        width: 10rem;
+        height: 4rem;
+        margin: 0 1.8rem 2rem 2.7rem;
+        line-height: 4.3rem;
+        cursor: pointer;
+    }
+    label{
+        font-size:2rem;
+    }
+    .submit a,.last a{
+        color: #1973bc;
+        font-size: 1.8rem;
+    }
+    .submit a:hover,.last a:hover{
+        color: white;
+    }
+}
+/*6*/
+@media (min-device-width : 376px) and (max-device-width : 667px) {
+    .ques_title{
+        height: 16rem;
+        background-image: url("../images/wj.png");
+        background-size: contain;
+    }
+    .ques_body{
+        width: 28rem;
+        min-height: 0;
+        padding-top: 10rem;
+        padding-bottom: 5rem;
+        padding-left:2rem;
+        font-size: 2rem;
+    }
+    .ques_title {
+        width: 100%;
+    }
+    .ques_box {
+        width: 33rem;
+        min-height: 15rem;
+        border: none;
+    }
+    .ques_body h4{
+        width:100%;
+        height:auto;
+        margin: -5rem 0 1rem 0;
+        font-size: 2.5rem;
+    }
+    .submit,.last{
+        width: 10rem;
+        height: 5rem;
+        margin: 0 2.7rem 2rem 3rem;
+        line-height: 5rem;
+        cursor: pointer;
+    }
+    label{
+        font-size:2.1rem;
+    }
+    .submit a,.last a{
+        font-size: 2rem;
+    }
+    .submit a:hover,.last a:hover{
+        color: white;
+    }
+}
+

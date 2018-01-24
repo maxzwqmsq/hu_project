@@ -1,0 +1,70 @@
+.box{
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.boxItem{
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+}
+.box>.boxItem:last-child{
+    border-bottom:none;
+}
+.boxItem>label{
+    width:30%;
+}
+.boxItem input{
+    width:70%;
+}
+#schedule-box{
+    position: relative;
+    width:100%;
+    background: rgb(242,242,242);
+}
+.currentDate.selected-style:after{
+    background: red;
+}
+.selected-style{
+    background: none;
+    color: #000;
+}
+.today-flag{
+    background:rgb(78,173,255);
+    box-shadow: 0 1px 5px 2px rgb(169,175,255);
+}
+.chooseType{
+    width: 40%;
+    display: flex;
+}
+.chooseType>span{
+    width: 50%;
+    text-align: center;
+}
+.chooseType>span>b{
+    display: inline-block;
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    background: red;
+}
+.chooseType>span>b{
+    background: url(../image/nochoose.png);
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right:5px;
+}
+.chooseType>span.on>b{
+    background: url(../image/choosed.png);
+    background-size: 100%;
+}
+.boxItem2{
+    padding: 20px 0;
+    border: none;
+}
+.dateChoose>div:first-child{
+    text-align: center;
+    margin: 10px;
+    font-size: 1.2em;
+}

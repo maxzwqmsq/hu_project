@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电话</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    $(function () {
+        var tel;
+        $.ajax({
+            url:"http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=kefu&type=1",
+            type:"post",
+            success:function (res,status) {
+                tel=res.data.telephone;
+            }
+        });
+       $(window).attr("location","tel://"+tel);
+    });
+</script>
+</html>

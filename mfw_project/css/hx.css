@@ -1,0 +1,94 @@
+@media  (min-device-width : 10px) {
+    .hx{
+        width: 100%;
+        height: 3rem;
+        margin-top: 4.5rem;
+        background: #eaeaea;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+    .hx span{
+        width: 5rem;
+        height: 100%;
+        line-height: 3rem;
+        text-align: center;
+        display: inline-block;
+        z-index: 100;
+    }
+    .hx_show{
+        margin-top: 0;
+        padding: 3rem .5rem 0 .5rem;
+        background: #eaeaea;
+    }
+    .hx_show img{
+        width: 100%;
+        height: 20rem;
+    }
+    .hx_show li{
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        background: white;
+        border-bottom: .1rem solid #f1f1f1;
+    }
+    .hx_show li p .tag{
+        width: auto;
+        height: 3rem;
+        padding: .2rem;
+        margin-left: 2rem;
+        border: .1rem solid black;
+    }
+    .hx_name{
+        font-size: 1.6rem;
+        padding: .4rem;
+    }
+    .hx_wz{
+        padding: .4rem;
+    }
+    span.mianji{
+        color: #809db7;
+        font-size: 1.2rem;
+        margin-left: .5rem;
+    }
+    span.jiage{
+        color: #ff6b61;
+        margin-left: 5rem;
+    }
+    span.nn{
+        color: #809db7;
+    }
+    a.zs{
+        position: absolute;
+        left: 0;
+        top:-1rem;
+    }
+    a.zs img{
+        width: auto;
+        height: 2.5rem;
+    }
+
+
+    /*左滑导航*/
+    .inner{
+        height: 5rem;
+        background: white;
+        overflow:hidden;
+    }
+    .in{
+        height: 110%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    .in a{
+        display: inline-block;
+        height: 100%;
+        line-height: 3rem;
+        padding: 0 1rem;
+        font-size:1.6rem;
+    }
+    .active{
+        background: #eaeaea;
+    }
+    .inner::-webkit-scrollbar { display: none }
+}

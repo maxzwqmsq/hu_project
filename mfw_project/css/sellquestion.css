@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+.ques_label{
+    width: 100%;
+    height: 2rem;
+    padding-left: .5rem;
+    background: #eee;
+}
+.ques_label .label{
+    width: auto;
+    height: .2rem;
+    padding: .2rem;
+    margin-right: .3rem;
+    background: #e3e3e3;
+    border-radius: .2rem;
+    border: 1px solid #3c90fd;
+    font-size: .4rem;
+}
+.ques_body{
+    padding: 0 .4rem 0 .8rem;
+    list-style: none;
+}
+.wt{
+    margin-bottom: .3rem;
+}
+.ques_body .wt .wen span{
+    font-size: .4rem;
+}
+.ques_body .wt .wen{
+    width: 100%;
+    height:1rem;
+    margin-left: -.3rem;
+    line-height: 1rem;
+}
+.ques_body .wt .read{
+    padding-left: .2rem;
+    margin-top: -.5rem;
+}
+.ques_body .wt .wen img{
+    width: .5rem;
+    vertical-align: top;
+    margin-top: .3rem;
+}
+.ques_body .wt .wen span{
+    width: 80%;
+    height: 1rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -.2rem;
+}
+.daan{
+    font-size: .4rem;
+    background: #ebebeb;
+}
+
+.t1{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+}
+.p3{
+    width: 100%;
+    height: 1.5rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    margin-top: .3rem;
+    color: #5b5b5b;
+}
+.daan>li{
+    padding: .3rem;
+    font-size: .4rem;
+}
+.daan li>img{
+    width:.5rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+.dann>li span{
+    font-size: .3rem;
+}
+.p2{
+    position: relative;
+}
+.p2 span:nth-child(2){
+    font-size: .4rem;
+    display: inline-block;
+}
+.p2 img{
+    vertical-align: middle;
+    margin-top: .1rem;
+}
+.p2 span{
+    font-size: .3rem;
+}
+.tt{
+    display: block;
+    position: absolute;
+    left: 1.2rem;
+    top:1rem;
+    font-size: .3rem;
+    color: #656565;
+}
+.ques_footer{
+    width: 100%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-size: .5rem;
+    text-align: center;
+    background: #68aaff;
+}
+.read>span{
+    font-size: .27rem;
+    color: #6b6b6b;
+}
+.read>span>img{
+    vertical-align: middle;
+    margin-top: -.1rem;
+    margin-right: .2rem;
+}
+.s1{
+    font-size: .2rem;
+}

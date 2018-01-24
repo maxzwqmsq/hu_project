@@ -1,0 +1,487 @@
+@media  (min-device-width : 10px) {
+.lead{
+    display: flex;
+    width: 100%;
+    height: 4rem;
+    margin-top: -.1rem;
+    background: #eee;
+}
+.lead a{
+    display: block;
+    flex: 2;
+    text-align: center;
+    color: #b3b3b3;
+    font-size: 1.8rem;
+    line-height: 4rem;
+}
+.lead a:nth-child(1){
+    text-align: right;
+    flex: 1;
+}
+.lead a:nth-child(3){
+    text-align: left;
+    flex: 1;
+}
+.dizhi{
+    padding: 0 .5rem;
+}
+.lunbo{
+    width: 100%;
+    height: 22rem;
+    margin-top: 4.8rem;
+    margin-bottom: .5rem;
+}
+.lp_name{
+    width: 100%;
+    height: 2rem;
+    position: relative;
+}
+.lp_name span:nth-child(1){
+    width: auto;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.lp_name span:nth-child(2),.lp_name span:nth-child(3){
+    display: inline-block;
+    font-size: 1.4rem;
+    color: #50abff;
+    width: 3rem;
+    height:2rem;
+    text-align: center;
+    border: .1rem solid #50abff;
+    border-radius: .5rem;
+}
+.lp_name span:nth-child(2){
+    width: 3.2rem;
+    height: 1.9rem;
+    line-height: 1.9rem;
+    border: none;
+    background:#dcedff ;
+}
+    .lp_name span:nth-child(4){
+        display: inline-block;
+        float: right;
+        margin-right: .7rem;
+    }
+    .lp_name a{
+        display: inline-block;
+        float: right;
+        margin-right: .5rem;
+    }
+    .lp_name a:nth-child(5){
+        margin-right: 2rem;
+    }
+    .lp_name a:last-child{
+        position: absolute;
+        right: 2rem;
+        top:2rem;
+        font-size: 1.2rem;
+        color: #ff9191;
+    }
+    .lp_price{
+        color: #ffa650;
+        font-size: 1.6rem;
+        margin-top: 0;
+    }
+    .lp_inform{
+        width: 100%;
+        position: relative;
+    }
+    .lp_inform p{
+        width: 80%;
+    }
+    .lp_inform a{
+        display: inline-block;
+        width: 20%;
+        position: absolute;
+        top:.8rem;
+        right: .5rem;
+        text-align: right;
+        color: #4faafd;
+    }
+    .lp_inform img{
+        margin-right: .2rem;
+    }
+    .lp_inform p span:nth-child(2){
+        color: #b3b3b3;
+    }
+    .lp_inform p:nth-child(3){
+        color: #fa7474;
+    }
+    .lp_inform p:nth-child(3) span{
+        color: #fa7474;
+    }
+    .lp_title{
+        color: #a7a7a7;
+    }
+    .lp_zhoubian{
+        width:100%;
+        display: flex;
+    }
+    .lp_zhoubian a{
+        flex: 1;
+        width: 2rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        margin-right: 2rem;
+        text-align: center;
+        color: white;
+        background: #7ed7ff;
+        border-radius: .5rem;
+    }
+    .lp_zhoubian a:nth-child(2){
+        background: #ff7c48;
+    }
+    .lp_zhoubian a:nth-child(3){
+        background: #6cc549;
+    }
+    .lp_zhoubian a:nth-child(4){
+        background: #f9b92f;
+    }
+    .lp_zhoubian a img{
+        margin-top: .1rem;
+        margin-right: .2rem;
+    }
+    .lp_dongtai{
+        width: 100%;
+        height: 2rem;
+        line-height: 2rem;
+        margin-top: 2.4rem;
+        padding-bottom: .4rem;
+        margin-bottom: 2rem;
+        border-bottom: .1rem solid #f3f3f3;
+    }
+    .lp_dongtai img{
+        display: inline-block;
+        float: right;
+        margin-right: .5rem;
+    }
+    .lp_content{
+        width: 100%;
+        height: auto;
+        color: #8a8a8a;
+        margin-bottom: 2rem;
+    }
+    .lp_content img{
+        display: block;
+        margin: 1rem auto;
+    }
+    .lp_adv{
+        width: 100%;
+        height: 14rem;
+        background: black;
+        position: relative;
+    }
+    .lp_adv a{
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        width: 6rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        text-align: center;
+        border-radius: 1.5rem;
+        background:#beccd8;
+        color: white;
+    }
+    .dp_xiangqing{
+        padding-left: 0;
+    }
+    .dp_tx_1{
+        position: relative;
+        border-bottom: .1rem solid #dcdcdc;
+    }
+   .tx{
+       width:4rem;
+       height: 4rem;
+       border-radius: 20rem;
+   }
+    .dp_name_1{
+        position: absolute;
+        left: 5rem;
+        top:.7rem;
+        display: inline-block;
+        width: 5rem;
+        height: 3rem;
+    }
+    .pj{
+        display: inline-block;
+        width: 5rem;
+        height: 2rem;
+        float: right;
+        vertical-align: bottom;
+        margin-right: 1rem;
+    }
+    .dp_content_1{
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+    }
+    .zhankai{
+        color: #4faafd;
+        float: right;
+        margin-right: 1rem;
+    }
+    .pic{
+        width: 100%;
+        height: 8rem;
+        margin-right: 0;
+    }
+    .pic img{
+        width:25%;
+        height:100%;
+        display: inline-block;
+    }
+    .dp_rq,.dz_rs{
+        color: #c6ced5;
+        font-size: 1.4rem;
+    }
+    .dp_rq{
+        margin-right: 17rem;
+    }
+    .lp_duibi{
+        display: flex;
+        width: 100%;
+    }
+    .lp_duibi a{
+        flex: 1;
+        text-align: center;
+        display: inline-block;
+        padding-bottom: .5rem;
+        border-bottom: .1rem solid #dcdcdc;
+    }
+    .lp_duibi a:first-child{
+        color: #4faafd;
+        border-bottom: .1rem solid #4faafd;
+    }
+    .duibi{
+        width: 100%;
+        display: flex;
+        padding-left: 0;
+        margin-bottom: 2rem;
+    }
+    .duibi li{
+        flex: 1;
+        padding: 2rem .5rem 0 .5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        border-right: .1rem solid #dcdcdc;
+        position: relative;
+    }
+    .duibi li:last-child{
+        border-right: none;
+    }
+    .duibi li img{
+        width: 80%;
+        height: 7rem;
+    }
+    .duibi li p:nth-child(2){
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    .duibi li p:nth-child(3){
+        color: #ff9a50;
+        margin:.3rem 0;
+    }
+    .duibi li p:nth-child(4){
+        color: #809db7;
+        margin:.2rem 0;
+    }
+    .duibi li span{
+        width: auto;
+        height: 2rem;
+        line-height: 2rem;
+        padding: .1rem;
+        color: #50abff;
+        border: .1rem solid #50abff;
+        border-radius: .1rem;
+    }
+    .duibi li span.zaishou{
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        top: 16px;
+        border: none;
+    }
+    span.zaishou img{
+        width: 100%;
+        height: 2rem;
+    }
+    .duibi li .zs{
+        display: inline-block;
+        color: white;
+        position: absolute;
+        left: .8rem;
+        top: -.1rem;
+        border: none;
+    }
+    .info_li{
+        height: 12rem;
+        padding-left:1rem;
+    }
+    .info_li li{
+        color: #c6ced5;
+        width: 50%;
+        line-height: 3rem;
+        height: 3rem;
+        float: left;
+    }
+    .ld_info .quanjing{
+        width: 100%;
+        height: 20rem;
+    }
+    span.zs_span{
+        width: 10rem;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+    }
+    .zhanwei{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .swiper-slide img{
+        width: 100%;
+        height: 100%;
+
+    }
+    .ld_info{
+        position: relative;
+    }
+    .lpdd{
+        position: absolute;
+        left: 0;
+        top:0;
+        width: 9rem;
+        height: 5rem;
+        text-align: center;
+        line-height: 4rem;
+        background: url("../images/楼盘标记.png") no-repeat;
+        background-size: 100%;
+    }
+    .wenti{
+        padding-left: 0;
+    }
+    .wenti .wen img{
+        vertical-align: middle;
+        margin-right: .5rem;
+    }
+    .wenti .wen span.wt{
+        width: auto;
+    }
+    .wenti .wen .xx{
+        display: inline-block;
+        float: right;
+    }
+    .wenti .wen .see{
+        color: #e9e9e9;
+    }
+    .wenti .wen p{
+        margin-top: .2rem;
+        padding-left: 2rem;
+    }
+    .wenti .wen .rq{
+        display: inline-block;
+        width: 7rem;
+        margin-left: 1.5rem;
+    }
+    .wenti .wen .df{
+        width: auto;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        padding:0 .4rem;
+        color: white;
+        border-radius: .3rem;
+        background:#dfdfdf ;
+    }
+    .wenti .wen .k{
+        vertical-align: top;
+        margin-top: .1rem;
+    }
+    .huida{
+        width: 100%;
+        height: auto;
+        padding-top:1rem;
+        padding-left: 0;
+        margin-bottom: 2.5rem;
+        background: #f7f7f7;
+    }
+    .huida .fi img{
+        vertical-align: middle;
+    }
+    .huida .c{
+        padding-left:2rem ;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 1rem;
+        position: relative;
+        border-bottom: .1rem solid #e6e6e6;
+    }
+    .huida .c img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+    .huida .c span{
+        position: absolute;
+        font-size: 1.2rem;
+        left: 6rem;
+        top:1.4rem;
+    }
+    .huida .c p{
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+        padding-left: .4rem;
+        color: #acacac;
+    }
+    .huida .c .rr{
+        color: #c6ced5;
+    }
+    .zixun{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 7%;
+        z-index: 100000;
+        display: flex;
+    }
+    .zixun a{
+        text-align: center;
+        line-height:50px;
+        font-size: 1.8rem;
+        flex: 1;
+    }
+    .zixun a:first-child{
+        display: inline-block;
+        background: white;
+        flex: 1;
+    }
+    .zixun a:nth-child(2){
+        color: white;
+        display: inline-block;
+        background: #67aaff;
+        flex: 1;
+    }
+    .zixun a:nth-child(3){
+        color: white;
+        display: inline-block;
+        background: #eca241;
+        flex: 1;
+    }
+    .sc,.lx,.dzz,.kp,.qjj{
+        width: 14px;
+    }
+    .modal-dialog{
+        top: 15%;
+    }
+    #myModal2  .modal-dialog{
+        top: 15%;
+    }
+}

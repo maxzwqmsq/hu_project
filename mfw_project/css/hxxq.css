@@ -1,0 +1,97 @@
+@media  (min-device-width : 10px) {
+    .nav p a{
+        float: left;
+        margin-left: 2rem;
+    }
+    .lunbo{
+        margin-top: 4.5rem;
+    }
+    .hx_jiage{
+        color:#ff5661 ;
+    }
+    .hx_jiage span:first-child{
+        font-size: 1.8rem;
+    }
+    .hx_label{
+        width: auto;
+        height: 3rem;
+        padding: .2rem;
+        border: .1rem solid black;
+    }
+    .hx_thir span.name{
+        margin-left: 3rem;
+        margin-right: 3rem;
+        color: #4d4d4d;
+    }
+    .hx_dz{
+        width: 100%;
+        height: auto;
+        color: #8a8a8a;
+    }
+    .hx_js{
+        width: 100%;
+        height: auto;
+        color: #8a8a8a;
+    }
+    .hx_js img:nth-child(1){
+        margin-right: .4rem;
+    }
+    .gray{
+        width: 100%;
+        height: 1rem;
+        background:#f3f3f3;
+    }
+    .qthx{
+        position: relative;
+    }
+    .qthx hr{
+        width: 60%;
+        margin-top: 3rem;
+    }
+    p.qt{
+        position: absolute;
+        left: 11rem;
+        top:-3.5rem;
+        width:auto;
+        height: 3rem;
+        font-size: 1.8rem;
+        line-height: 3rem;
+        padding: .5rem;
+        font-weight: 700;
+        background: white;
+    }
+    p.kl{
+        height: 3rem;
+        font-size: 1.8rem;
+        line-height: 3rem;
+        padding-left: 2rem;
+        border-left: .5rem solid #50abff;
+    }
+    .klyk{
+        padding-left: 1rem;
+    }
+    .klyk li{
+        float: left;
+        width: 50%;
+        height: auto;
+    }
+    .klyk li .m2{
+        width: auto;
+        margin-left: 1rem;
+    }
+    p.k_sj{
+        color: #ef0000;
+    }
+    p.k_sj span:last-child{
+        color:#656565 ;
+    }
+    .js_content{
+        padding: 1rem;
+    }
+    .k_1 img{
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        height: 80%;
+    }
+}

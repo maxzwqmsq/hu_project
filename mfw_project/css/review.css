@@ -1,0 +1,198 @@
+.review .building{
+    padding: 0.22rem 0.20rem 0.34rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 0.02rem solid #eee;
+    background: #fff;
+}
+/*左*/
+.review .building .left .title{
+    font-size: 0.27rem;
+    color: #383838;
+    margin-bottom: 0.18rem;
+}
+.review .building .left{
+    font-size: 0;
+    padding-left: 0.12rem;
+}
+.review .building .left img{
+    width: 1.92rem;
+    height:1.63rem;
+}
+/*右*/
+.review .building .right{
+    padding-right: 0.3rem;
+}
+.priceBox,.modelBox,.aroundBox,.groundBox{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.review .building .right img{
+    width: 0.24rem;
+    height:0.24rem;
+    margin-right: 0.05rem;
+}
+.review .building .right .title{
+    width: 1.50rem;
+    font-size: 0.23rem;
+    color: #363636;
+}
+.review .building .right .score{
+    font-size: 0.23rem;
+    color: #8A8A8A;
+}
+.review .building .right>div{
+    margin-bottom: 0.1rem;
+}
+.review .building .right>div:last-child{
+    margin: 0;
+}
+/*文本框*/
+.reviewB textarea{
+    width: 100%;
+    height: 2.24rem;
+    border: none;
+    resize: none;
+    outline: none;
+    padding: 0.3rem 0.25rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 0.3rem;
+    color: #979797;
+}
+.reviewB{
+    margin-bottom: 0.15rem;
+}
+/*咨询师*/
+.people{
+    padding: 0.14rem 0.2rem 0.25rem;
+    margin-bottom: 0.04rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+}
+.people .photo{
+    width: 1rem;
+    height:1rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.19rem;
+}
+.people .photo img{
+    width: 100%;
+    height:100%;
+}
+.people .info .name{
+    font-size: 0.3rem;
+    color: #363636;
+    margin-bottom: 0.15rem;
+}
+.people .info .star{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.people .info .star img{
+    width: 0.22rem;
+    height:0.22rem;
+    margin-right: 0.05rem;
+}
+.views{
+    padding: 0.25rem 0.20rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.28rem;
+    color: #363636;
+    background: #fff;
+    border-bottom: 0.02rem solid #eee;
+}
+.views .title{
+    width: 2.45rem;
+}
+.views img{
+    width: 0.42rem;
+    height: 0.42rem;
+    margin-right: 0.1rem;
+}
+.infoBox{
+    margin: 0;
+    border: solid #eee;
+    border-width: 0.02rem 0 0.02rem;
+}
+.add{
+    padding: 0.3rem 0.25rem;
+    background: #fff;
+    font-size: 0.3rem;
+    color: #979797;
+}
+.add .title{
+    margin-bottom: 0.25rem;
+}
+.add .choose{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.add .choose span{
+    padding: 0.10rem 0.12rem;
+    font-size: 0.27rem;
+    background: #fff;
+    border: 0.01rem solid #B8DCFF;
+    -webkit-border-radius: 0.08rem;
+    -moz-border-radius: 0.08rem;
+    border-radius: 0.08rem;
+    color: #4FABFF;
+    margin-right: 0.16rem;
+}
+.add .choose .choosed{
+    background: #B8DCFF;
+}
+.need{
+    padding: 0.37rem 0.20rem 0.68rem;
+    font-size: 0.27rem;
+    color: #979797;
+    text-align: center;
+    background: #fff;
+}
+.need .title{
+    margin-bottom: 0.28rem;
+}
+.need span{
+    display: inline-block;
+    width: 2.37rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    background: #84C3FF;
+    color: #fff;
+    margin: 0 0.21rem;
+    border-radius: 0.08rem;
+}
+.need span:last-child{
+    background: #FF7C83;
+}
+.submit{
+    padding: 0.73rem 0 0.57rem;
+    text-align: center;
+}
+.submit span{
+    display: inline-block;
+    border: none;
+    outline: none;
+    width: 2.65rem;
+    height: 0.88rem;
+    font-size: 0.28rem;
+    color: #fff;
+    -webkit-border-radius: 0.88rem;
+    -moz-border-radius: 0.88rem;
+    border-radius: 0.88rem;
+    background: #84C3FF;
+    line-height: 0.88rem;
+}

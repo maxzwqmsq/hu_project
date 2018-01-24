@@ -1,0 +1,17 @@
+ul.recordlist{
+    width: 1000%;
+    height: 90px;
+    background-color: #F8F8F8;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid #363636;
+    z-index: 1000;
+}
+ul.recordlist li{
+    height:30px;
+    text-indent:15px;
+    font-size:12px;
+    line-height:30px;
+    list-style:none;
+    color: black;
+}

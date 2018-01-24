@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线咨询</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+                <div class="sj">
+                    手机号：<input type="text" name="phone" autocomplete="off">
+                </div>
+                <div class="sj">
+                    密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd" autocomplete="off">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default login">立即登录</button>
+                <button type="button" class="btn btn-primary register" data-target="#myModal2">没有账号？点击注册</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">注册</h4>
+            </div>
+            <div class="modal-body">
+                <div class="sj zcsj">
+                    手机号：<input type="text" name="phone1" autocomplete="off" class="number">
+                    <a href="#" class="yzm" style="display: block">获取验证码</a>
+                </div>
+                <div class="sj zcmm">
+                    密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd1" autocomplete="off" class="pass">
+                </div>
+                <div class="sj zcyz">
+                    验&nbsp;证&nbsp;码&nbsp;：<input type="text"  name="yz" class="yz">
+                </div>
+                <div class="sj">
+                    推广人id：<input type="text" >
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default rr">立即注册</button>
+                <button type="button" class="btn btn-primary zz" >已有账号？点击登录</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+</body>
+</html>
+<script>
+    var userid=localStorage.getItem("uid");
+    if(!userid){
+        var a=confirm("请先登录！");
+        console.log(a);
+        if(a===true){
+            $("#myModal").modal("show");
+        }
+    }else{
+        var img=localStorage.getItem("img");
+        var title=localStorage.getItem("title");
+        var uname=localStorage.getItem("huanxinAccount");
+        var upass=localStorage.getItem("huanxinPassword");
+        console.log(uname);
+        console.log(upass);
+        window.easemobim = window.easemobim || {};
+
+        easemobim.config = {
+            configId: 'f69872ec-1264-4da1-aa01-230f2b4894e6',
+            //聊天窗口加载成功回调
+            user: {
+                // username 必填，password 和 token 任选一项填写
+                username:uname,
+                password: upass,
+                token: ''
+            },
+            onready: function () {
+                easemobim.sendExt({
+                    ext:{
+                        "imageName": "mallImage3.png",
+                        //custom代表自定义消息，无需修改
+                        "type": "custom",
+                        "msgtype": {
+                            "track":{
+                                "title":"我正在看：",
+                                "desc":title,
+                                "img_url":img,
+                                "item_url":"https://www.yourdomain.com/item/a.html"
+                            }
+                        }
+                    }
+                });
+            }
+        };
+        easemobim.bind({configId: "f69872ec-1264-4da1-aa01-230f2b4894e6"});
+    }
+    </script>
+    <script src='//kefu.easemob.com/webim/easemob.js'></script>
+<script>
+    $(".yy").click(function () {
+        var userid=localStorage.getItem("uid");
+        if(!userid){
+            var a=confirm("请先登录！");
+            console.log(a);
+            if(a===true){
+                $("#myModal").modal("show");
+            }
+        }else{
+            $(window).attr("location","index.html");
+        }
+    });
+    $(".dh").click(function () {
+        var that=$(this);
+        $.ajax({
+            url:"http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=kefu&type=1",
+            type:"post",
+            success:function (res,status) {
+                console.log(res);
+                var tel=res.data.telephone;
+                that.attr("href","tel://"+tel);
+            }
+        })
+    });
+    $(".login").click(function () {
+        var phone=$("input[name='phone']").val();
+        var pwd=$("input[name='pwd']").val();
+        console.log(phone,pwd);
+        $.ajax({
+            url:"http://120.27.215.48:8081/duifang/servlet/Login",
+            data:"opt=login&phone="+phone+"&password="+pwd,
+            type:"post",
+            success:function (res,status) {
+                console.log(res);
+                if(res.code===200){
+                    console.log("查询成功！");
+                    localStorage.setItem("uid",res.uid);
+                    localStorage.setItem("nickname",res.nickname);
+                    localStorage.setItem("huanxinAccount",res.huanxinAccount);
+                    localStorage.setItem("huanxinPassword",res.huanxinPassword);
+                    localStorage.setItem("password",res.password);
+                    localStorage.setItem("phone",res.phone);
+                    localStorage.setItem("pic",res.pic);
+                    alert("登录成功！");
+                    $("#myModal").modal("hide");
+                }else{
+                    alert(res.message);
+                }
+            }
+        })
+    });
+    $(".yzm").click(function () {
+        var that=$(this);
+        var time=60;
+        var timer=setInterval(function () {
+            if(time<=0){
+                clearInterval(timer);
+                that.html("获取验证码");
+            }else{
+                time--;
+                that.html(time);
+            }
+        },1000);
+
+        phone1=$("input[name='phone1']").val();
+        mima=$("input[name='pwd1']").val();
+        function isPhoneNo(phone) {
+            var pattern = /^1[34578]\d{9}$/;
+            return pattern.test(phone);
+        }
+        if(phone1===" "){
+            alert("手机号不能为空！");
+        }else if(!isPhoneNo(phone1)){
+            alert("手机号格式不正确！");
+        }else{
+            $.ajax({
+                url:"http://120.27.215.48:8081/duifang/servlet/Obtainsms",
+                data:"opt=verification&phone="+phone1,
+                type:"post",
+                success:function (res,status) {
+                    console.log(res);
+                    if(res.code===200){
+                        alert("验证码发送成功！");
+                        $(".rr").click(function () {
+                            var mima=res.data;//获取验证码
+                            yzz=$("input[name='yz']").val();
+                            console.log(yzz);
+                            if(mima==yzz){
+                                $.ajax({
+                                    url:"http://120.27.215.48:8081/duifang/servlet/Login",
+                                    data:"opt=register&phone="+phone1+"&type=0&password="+mima+"&auth_code="+yzz,
+                                    type:"post",
+                                    success:function (res,status) {
+                                        console.log(res);
+                                        if(res.code===200){
+                                            alert("注册成功！");
+                                            $("#myModal").modal("show");
+                                            $("#myModal2").modal("hide");
+                                        }else{
+                                            alert(res.message);
+                                        }
+                                    }
+                                });
+                            }else{
+                                alert("验证码有误！");
+                            }
+                        })
+                    }else{
+                        alert(res.message);
+                    }
+                }
+            })
+        }
+    });
+    $(".register").click(function () {
+        $("#myModal").modal("hide");
+        $("#myModal2").modal("show");
+    });
+    $(".zz").click(function () {
+        $("#myModal").modal("show");
+        $("#myModal2").modal("hide");
+    })
+</script>

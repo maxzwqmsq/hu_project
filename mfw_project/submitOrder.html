@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="mui/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="mui/mui.picker.min.css" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>预约服务</title>
+</head>
+<body class="fabg">
+<div class="mui-content">
+    <div class="box whitebg">
+        <div class="boxItem">
+            <label>姓名 <span class="red">*</span></label>
+            <!--<input type="text" placeholder="请输入姓名" class="uname">-->
+            <div class="uname" contenteditable="true" style="width: 70%" ></div>
+        </div>
+        <div class="boxItem">
+            <label>联系方式 <span class="red">*</span></label>
+            <input class="telphone" type="text" placeholder="请输入联系方式" >
+        </div>
+    </div>
+
+    <div class="box whitebg">
+        <div class="boxItem">
+            <label>预约时间 <span class="red ">*</span></label>
+            <input type="text" placeholder="请选择空闲时间" data-options='{}' class="btn" id="result">
+        </div>
+    </div>
+
+    <!--askpersonal server box-->
+    <div class="box whitebg">
+        <div class="boxItem boxItem2">
+            <p>是否需要上次咨询师服务?<span class="red margin_5lf">*</span></p>
+            <p class="chooseType"><span  value="1"><b></b>是</span><span class="on" value="0"><b></b>否</span></p>
+        </div>
+
+        <!--time choose-->
+        <div class="dateChoose" style="display: none">
+            <div>咨询师行程表</div>
+            <div id='schedule-box' class="boxshaw">
+
+            </div>
+            <div style="visibility: hidden">
+                <h3 id='h3Ele'></h3>
+            </div>
+        </div>
+
+        <!--无上次-->
+        <p class="noDateChoose" style="display: none;    padding-bottom: 10px;">您是首次预约,暂无此信息...</p>
+    </div>
+
+    <div class="box whitebg">
+        <div class="boxItem" style="padding:10px 0">
+            <p>备注</p>
+        </div>
+        <div>
+            <!--<textarea  rows="5" placeholder="请填写有什么要求" class="note"></textarea>-->
+            <div class="note" contenteditable="true" style="height: 10rem;width: 100%"></div>
+        </div>
+    </div>
+
+    <a href="#" id="submitOrder" onclick="OrderLook()">提交预约</a>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/schedule.js"></script>
+<script src="js/common.js"></script>
+<script src="mui/mui.min.js"></script>
+<script src="mui/mui.picker.min.js"></script>
+<script>
+    (function($) {
+        $.init();
+        var result = $('#result')[0];
+        var btns = $('.btn');
+        btns.each(function(i, btn) {
+            btn.addEventListener('tap', function() {
+                var optionsJson = this.getAttribute('data-options') || '{}';
+                var options = JSON.parse(optionsJson);
+                var id = this.getAttribute('id');
+                var picker = new $.DtPicker(options);
+                picker.show(function(rs) {
+
+                    result.value=rs.text;
+
+                    picker.dispose();
+                });
+            }, false);
+        });
+    })(mui);
+
+    var curVlue='',guwenID='';
+    var mySchedule = new Schedule({
+        el: '#schedule-box',
+    });
+
+    $('.chooseType span').click(function(e){
+        var target=e.target;
+        if(target.nodeName!=='SPAN'){
+            target=$(target).parents('span');
+        }
+
+        //选择是否
+        var vlu=$(target).attr('value');
+        if(vlu=='1'){
+            //yes
+            var tel=$('.telphone').val();
+            checkSecond(tel);
+            //send checkSecond
+        }else{
+            $('.dateChoose').hide();
+        }
+
+        if($(target).hasClass('on')){
+            return;
+        }else{
+            $(target).addClass('on').siblings('.on').removeClass('on');
+        }
+    })
+
+    function checkSecond(tel){
+        common.ajaxPost('',{
+            opt:'onece_again',
+            phone:tel,
+        },function(data){
+           if(data.code==200) {
+               // 0 第一次 1 多次
+             if(data.data==0){
+                 $('.dateChoose').hide();
+                 $('.noDateChoose').show();
+             }else{
+                 $('.dateChoose').show();
+                 checkTimeList();
+             }
+           }
+        })
+    }
+
+
+    //order look room
+    function OrderLook(){
+        /** uid    客户主键ID
+         phone  手机号
+         name    姓名
+         note    备注
+         yuyuetime 预约时间 以 2017-12-14 13:22形式*/
+        var tel=$('.telphone').val();
+        var name=$('.uname').text();
+        var note=$('.note').text();
+        var time=$('#result').val();
+        if(name==''||note==''||time==''){
+            alert('请填写完整的信息');
+            return;
+        }
+
+        common.ajaxPost('',{
+            opt:'yuyuekanfang',
+            uid:'',
+            phone:tel,
+            name:name,
+            note:note,
+            yuyuetime:time,
+            guwenID:guwenID,
+        },function(data){
+            if(data.code==200){
+                alert('预约成功');
+                window.location.href=location.href;
+            }else{
+                alert(data.message);
+            }
+
+        })
+    }
+
+     //look guwen timelist
+    function checkTimeList(){
+        var tel=$('.telphone').val();
+        var datatime=$('.today').text().split('-');
+        var timestr=datatime[0]+'-'+datatime[1];
+
+        common.ajaxPost('',{
+            opt:'jianchaguwen',
+            datetime:timestr,
+            phone:tel,
+        },function(data){
+            if(data.code==200&&data.data.length>0){
+                //guenid
+                guwenID=data.guwenID;
+                var data=data.data;
+                for(var j=0;j<data.length;j++){
+                    data[j].time=data[j].time.split('-')[data.length-1];
+
+                    if(data[j].time<10){
+                        $('.current-month').each(function(i,obj){
+                            if('0'+$(obj).find('span').text()==data[j].time){
+                                $(obj).find('span').addClass('selected-style');
+                            }
+
+                        })
+
+                    }else{
+                        $('.current-month').each(function(i,obj){
+                            if($(obj).find('span').text()==data[j].time){
+                                $(obj).find('span').addClass('selected-style');
+                            }
+
+                        })
+
+                    }
+
+
+                }
+            }
+
+        })
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        var userid=localStorage.getItem("uid");
+        if(!userid) {
+            var a = confirm("请先登录！");
+            if(a==true){
+                $(window).attr("location","login.html");
+            }else{
+                $(window).attr("location","login.html");
+            }
+        }else{
+            $(".telphone").val(localStorage.getItem("phone"));
+        }
+    });
+
+
+</script>
+</body>
+</html>

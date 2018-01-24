@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/shouye.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <link rel="stylesheet" href="css/xiangqing.css">
+    <link rel="stylesheet" href="css/loupan.css">
+    <link rel="stylesheet" href="css/shouye.css">
+</head>
+<body>
+    <div class="nav">
+        <span class="position">南京</span>
+        <input type="text" placeholder="请输入楼盘名称/开发商/地区/问题" onfocus="this.placeholder=' '" onblur="this.placeholder='请输入楼盘名称/开发商/地区/问题'">
+        <span class="po_img personal"><img src="images/personal.png" alt=""></span>
+    </div>
+    <div class="lb">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+        </div>
+    </div>
+    <div class="sy_num">
+        <p class="num_1">
+            <span class="zx"></span>
+            <span>咨询次数</span>
+        </p>
+        <p class="num_1">
+            <span class="fw"></span>
+            <span>服务次数</span>
+        </p>
+        <p class="num_1">
+            <span class="gw"></span>
+            <span>金牌顾问</span>
+        </p>
+        <div class="sy_toolsbar">
+            <p class="tools_1">
+                <img src="images/买房问答.png" alt="" class="sellquestion">
+            </p>
+            <p class="tools_1">
+                <img src="images/找房.png" alt="">
+            </p>
+            <p class="tools_1">
+                <img src="images/在线咨询.png" alt="">
+            </p>
+        </div>
+    </div>
+    <div class="sy_adv">
+        <img src="images/nodata.png" alt="">
+        <a href="#">了解详情</a>
+    </div>
+    <div class="sy_part">
+        <div class="part_1">
+            <div class="mask">
+
+            </div>
+        </div>
+        <div class="part_2">
+            <div class="part_2_1 fi">
+                <div class="mask">
+
+                </div>
+            </div>
+            <div class="part_2_1 se">
+                <div class="mask">
+
+                </div>
+            </div>
+            <div class="part_2_1 th">
+                <div class="mask">
+
+                </div>
+            </div>
+            <div class="part_2_1 fo">
+                <div class="mask">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sy_rec">
+        <p class="rec_title">
+            <a>问问大家</a>
+            <span>更多<img src="images/more.png"></span>
+        </p>
+        <ul class="rec_wt">
+            <li class="wen">
+                <img src="images/问.png" alt="">
+                <span>在当今社会是选择租房还是买房呢？</span>
+            </li>
+            <li class="wen">
+                <img src="images/问.png" alt="">
+                <span>在当今社会是选择租房还是买房呢？</span>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <div class="sy_rec">
+        <p class="rec_title">
+            <a>推荐楼盘</a>
+            <span>更多<img src="images/more.png"></span>
+        </p>
+        <ul class="roomlist">
+
+        </ul>
+    </div>
+</body>
+</html>
+<!--页面跳转-->
+<script>
+    $(function () {
+        $(".tools_1 .sellquestion").click(function () {
+            $(window).attr("location","sellquestion.html");
+        });
+        $(".nav input").click(function () {
+            $(window).attr("location","search.html");
+        });
+        $(".nav .personal").click(function () {
+            $(window).attr("location","personaldata.html");
+        });
+        $(".nav .position").click(function () {
+            $(window).attr("location","position.html");
+        });
+    })
+</script>
+<!--轮播-->
+<script>
+    var mySwiper = new Swiper ('.lb .swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        observer:true,//修改swiper自己或子元素时，自动初始化swiper
+        observeParents:true//修改swiper的父元素时，自动初始化swiper
+    })
+</script>

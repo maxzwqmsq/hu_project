@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link href="css/lottery.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jQuery.textSlider.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="body_mask"></div>
+
+    <div class="rotate" id="lottery">
+        <table>
+            <tr>
+                <td class="item lottery-unit lottery-unit-0">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-1">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-2">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="gap-2" colspan="5"></td>
+            </tr>
+            <tr>
+                <td class="item lottery-unit lottery-unit-7">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+                <td class="gap"></td>
+                <td class="item sp draw-btn" style=""  data-target="#myModal">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-3">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="gap-2" colspan="5"></td>
+            </tr>
+            <tr>
+                <td class="item lottery-unit lottery-unit-6">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-5">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-4">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="mask"></div>
+                    <span class="name"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p class="number"></p>
+    <div class="record" id="record">
+        <p>中奖纪录</p>
+        <ul class="recordlist" id="recordlist">
+        </ul>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="sj">
+                        手机号：<input type="text" name="phone" autocomplete="off">
+                    </div>
+                    <div class="sj">
+                        密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd" autocomplete="off">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default login">立即登录</button>
+                    <button type="button" class="btn btn-primary register" data-target="#myModal2">没有账号？点击注册</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel2">注册</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="sj zcsj">
+                        手&nbsp;机&nbsp;号：<input type="text" name="phone1" autocomplete="off" class="number">
+                        <a href="#" class="yzm" style="display: block">获取验证码</a>
+                    </div>
+                    <div class="sj zcmm">
+                        密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd1" autocomplete="off" class="pass">
+                    </div>
+                    <div class="sj zcyz">
+                        验&nbsp;证&nbsp;码&nbsp;：<input type="text"  name="yz" class="yz">
+                    </div>
+                    <div class="sj">
+                        推广人id：<input type="text" >
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default rr">立即注册</button>
+                    <button type="button" class="btn btn-primary zz" >已有账号？点击登录</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div class="ewm">
+        <div class="">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var i=0;
+    var flag=false;
+    var tflag=true;
+    var jf=true;
+    var resultStr;
+    var lottery = {
+        index: -1, //当前转动到哪个位置，起点位置
+        count: 0, //总共有多少个位置
+        timer: 0, //setTimeout的ID，用clearTimeout清除
+        speed: 20, //初始转动速度
+        times: 0, //转动次数
+        cycle: 50, //转动基本次数：即至少需要转动多少次再进入抽奖环节
+        prize: -1, //中奖位置
+        init: function(id) {
+            if($('#' + id).find('.lottery-unit').length > 0) {
+                $lottery = $('#' + id);
+                $units = $lottery.find('.lottery-unit');
+                this.obj = $lottery;
+                this.count = $units.length;
+                $lottery.find('.lottery-unit.lottery-unit-' + this.index).addClass('active');
+                $lottery.find('.lottery-unit.lottery-unit-' + this.index).children(".mask").show();
+            }
+        },
+        roll: function() {
+            var index = this.index;
+            var count = this.count;
+            var lottery = this.obj;
+            $(lottery).find('.lottery-unit.lottery-unit-' + index).removeClass('active');
+            $(lottery).find('.lottery-unit.lottery-unit-' + index).children(".mask").hide();
+            index += 1;
+            if(index > count - 1) {
+                index = 0;
+            }
+            $(lottery).find('.lottery-unit.lottery-unit-' + index).addClass('active');
+            $(lottery).find('.lottery-unit.lottery-unit-' + index).children(".mask").show();
+            this.index = index;
+            return false;
+        },
+        stop: function(index) {
+            this.prize = index;
+            flag=true;
+            if(flag===true){
+                setTimeout(function () {
+                    $("#result").prepend("恭喜您！抽中"+resultStr);
+                    $("#result").css({"visibility":"visible"});
+                    $(".body_mask").css({"visibility":"visible"});
+                    $(".mask").hide();
+                },1000);
+            }
+            return false;
+        }
+    };
+    /*function getUrlParam(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!==null) return unescape(r[2]); return null; //返回参数值
+    }*/
+//    var userid=getUrlParam("userid");
+    var userid=localStorage.getItem("uid");
+    console.log("uid:"+userid);
+    var name2;
+    var rs="";
+    function roll(index) {
+         rs="";
+        lottery.times += 1;
+        lottery.roll(index); //转动过程调用的是lottery的roll方法，这里是第一次调用初始化
+        if(lottery.times > lottery.cycle + 10 && lottery.prize === lottery.index) {
+            clearTimeout(lottery.timer);
+            lottery.times = 0;
+            lottery.prize = -1;
+            click = false;
+            lottery.stop();
+        } else {
+            if(lottery.times < lottery.cycle) {
+                lottery.speed -= 10;
+            } else if(lottery.times === lottery.cycle) {
+                var sum=sessionStorage.getItem("sum");
+                var pro=sessionStorage.getItem("pro");
+                var pro1=[];
+                var pro2=[];
+                pro1.push(pro.split(","));
+                var pr=0;
+                var pr2=0;
+                index = Math.ceil(Math.random() * (sum));
+                if(index>=0&&index<parseInt(pro1[0][0])){
+                    lottery.prize=0;
+                }
+               for(var q=1;q<pro1[0].length;q++){
+                    pr2+=parseInt(pro1[0][q-1]);
+                    pr=parseInt(pro1[0][q])+pr2;
+                    if(index>=pr2&&index<pr){
+                        lottery.prize=q;
+                        console.log("中奖位置："+lottery.prize);
+                    }
+                    if(pr2===pr&&index===pr){
+                        lottery.prize=0;
+                        console.log("库存不足！");
+                    }
+               }
+                resultStr = $(".lottery-unit-"+lottery.prize).children("span").html();
+                name2=$(".lottery-unit-"+lottery.prize).children(".name").text();
+//                返回userid,oid,tid
+                $.ajax({
+//                    url:"http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=seljiangpin&userid=",
+                    url:"http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=seljiangpin&userid="+userid,
+                    type:"post",
+                    success:function (res, status) {
+                        console.log(res.code);
+                        if(res.code===200){
+                            var oid="";
+                            var tid="";
+                            console.log(name2);
+                            for(var t=0;t<res.data.jiangpin.length;t++){
+                                if(name2===res.data.jiangpin[t].name){
+                                    oid=res.data.jiangpin[t].oid;
+                                    tid=res.data.jiangpin[t].tid;
+                                    console.log("ms:"+res.data.jiangpin[t].ms);
+                                    if(rs!==res.data.jiangpin[t].ms){
+                                        rs=rs+res.data.jiangpin[t].ms;
+                                    }
+                                    console.log("rs:"+rs);
+                                }
+                            }
+                            resultStr=resultStr+"。<br>"+rs+"<br>";
+                            $.ajax({
+                                url: "http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=insert&userid="+userid+"&oid="+oid+"&tid="+tid,
+//                                url: "http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=insert&userid="+userid+"&oid="+oid+"&tid="+tid,
+                                type: "post",
+                                success:function (res, status) {
+                                    console.log(res.code);
+                                    if(res.code===200){
+                                        console.log("已记录");
+                                        $.ajax({
+                                            url: "http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=addzhongjiang&userid="+userid+"&oid="+oid+"&tid="+tid,
+//                                        url: "http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=addzhongjiang&userid="+userid+"&oid="+oid+"&tid="+tid,
+                                            type: "post",
+                                            success:function (res, status) {
+                                                if(res.code===200){
+                                                    console.log("已记录");
+                                                }else if(res.code===303){
+                                                    console.log("奖品未记录");
+                                                }else if(res.code===203){
+                                                    alert("积分不足！扫描二维码获取更多积分");
+                                                    jf=false;
+                                                    clearTimeout(lottery.timer);
+                                                    lottery.times = 0;
+                                                    lottery.prize = -1;
+                                                    click = false;
+                                                    lottery.stop();
+                                                    $("#result").remove();
+                                                    $(window).attr("location","lottery.html");
+                                                }
+                                            }
+                                        })
+                                    }
+
+                                }
+                            });
+                        }
+                    }
+                })
+            } else {
+                if(lottery.times > lottery.cycle + 10 && ((lottery.prize === 0 && lottery.index === 7) || lottery.prize === lottery.index + 1)) {
+                    lottery.speed += 110;
+                } else {
+                    lottery.speed += 20;
+                }
+            }
+            if(lottery.speed < 40) {
+                lottery.speed = 40;
+            }
+            lottery.timer = setTimeout(roll, lottery.speed); //循环调用
+            return false;
+        }
+        return false;
+    }
+    var click = false;
+    window.onload = function() {
+        var index;
+        var probability=[];
+        var pro=[];
+        var sum=0;
+        var num=0;
+      /*  function getUrlParam(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r!==null) return unescape(r[2]); return null; //返回参数值
+        }
+        var userid=getUrlParam("userid");*/
+//        var code =getUrlParam("code");
+        lottery.init('lottery');
+        $.ajax({
+            url: "http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=seljiangpin&userid="+userid,
+//            url: "http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=seljiangpin&userid="+userid,192.168.2.31:8015
+            type: "post",
+            success: function (res, status) {
+                if(res !== 0){
+                    console.log(res.data);
+                    $(".rotate .lottery-unit img").each(function (i) {
+                        $item=$(".item");
+                        $item.eq(0).css({
+                           "background":"url('"+res.data.jiangpin[1].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(1).css({
+                            "background":"url('"+res.data.jiangpin[2].pic+"')",
+                            "background-size":"contain"
+                        });
+                        $item.eq(2).css({
+                            "background":"url('"+res.data.jiangpin[3].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(3).css({
+                            "background":"url('"+res.data.jiangpin[8].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(4).css({
+                            "background":"url('"+res.data.jiangpin[0].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(5).css({
+                            "background":"url('"+res.data.jiangpin[4].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(6).css({
+                            "background":"url('"+res.data.jiangpin[7].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(7).css({
+                            "background":"url('"+res.data.jiangpin[6].pic+"')",
+                            "background-size":"cover"
+                        });
+                        $item.eq(8).css({
+                            "background":"url('"+res.data.jiangpin[5].pic+"')",
+                            "background-size":"cover"
+                        });
+                    });
+                    $(".rotate .item.sp .img img").attr("src",res.data.jiangpin[0].pic);//抽奖按钮
+                    $(".rotate .lottery-unit .name").each(function (i) {
+                            $(".rotate .lottery-unit .name").eq(0).html(res.data.jiangpin[1].name);
+                            $(".rotate .lottery-unit .name").eq(1).html(res.data.jiangpin[2].name);
+                            $(".rotate .lottery-unit .name").eq(2).html(res.data.jiangpin[3].name);
+                            $(".rotate .lottery-unit .name").eq(3).html(res.data.jiangpin[8].name);
+                            $(".rotate .lottery-unit .name").eq(4).html(res.data.jiangpin[4].name);
+                            $(".rotate .lottery-unit .name").eq(5).html(res.data.jiangpin[7].name);
+                            $(".rotate .lottery-unit .name").eq(6).html(res.data.jiangpin[6].name);
+                            $(".rotate .lottery-unit .name").eq(7).html(res.data.jiangpin[5].name);
+                    });
+                    for(var i=0;i<res.data.jilu.length;i++){
+                        $(".recordlist").append("<li><span >"+res.data.jilu[i].username+"</span><span>"+res.data.jilu[i].name+"</span><span>"+res.data.jilu[i].createtime+"</span></li>");
+                    }
+                    for(var t=0;t<res.data.jiangpin.length-1;t++){
+                        probability.push(res.data.jiangpin[t+1].probability);
+                    }
+                    for(var k=0;k<probability.length;k++){
+                        pro.push(parseInt(probability[k]));
+                    }
+                    for(var p=0;p<pro.length;p++){
+                        sum+=pro[p];
+                    }
+                    sessionStorage.setItem("sum", sum);
+                    sessionStorage.setItem("pro", pro);
+                    //                        获取抽奖次数
+                    $("p.number").html("您还有"+res.data.num+"次抽奖机会");
+                    num=res.data.num;
+                    console.log(userid);
+                        $('.draw-btn').click(function() {
+                            var userid=localStorage.getItem("uid");
+                            console.log("uid:"+userid);
+                            if(userid===null){
+                                    var a=confirm("请先登录！");
+                                    console.log(a);
+                                    if(a===true){
+                                        $("#myModal").modal("show");
+                                    }
+                            }else{
+                                if(jf===true){
+                                    if(num>0){
+                                        if(click) { //click控制一次抽奖过程中不能重复点击抽奖按钮，后面的点击不响应
+                                            return false;
+                                        } else {
+                                            lottery.speed = 100;
+                                            roll(index); //转圈过程不响应click事件，会将click置为false
+                                            click = true; //一次抽奖完成后，设置click为true，可继续抽奖
+                                            num--;
+                                            $("p.number").html("您还有"+num+"次抽奖机会");
+                                            console.log(num);
+                                            console.log("flag:"+flag);
+                                            return false;
+                                        }
+                                    }else{
+                                        alert("抽奖次数已用尽");
+                                        $(".lottery-unit").each(function () {
+                                            $(this).removeClass("active");
+                                        });
+                                        return false;
+                                    }
+                                }else{
+                                    return false;
+                                }
+                            }
+
+                        });
+
+                }
+            }
+        });
+        console.log("tflag:"+tflag);
+        $("#result").on("click","button",(function () {
+            $("#result").css({"visibility":"hidden"});
+            $(".body_mask").css({"visibility":"hidden"});
+            $("#result").html("");
+            $("#result").append("<button style='width: 5rem;height: 3rem;border: none;background: gray'>确定</button>");
+        }));
+
+       /* var code=getUrlParam("code");
+        alert("code:"+code);*/
+      /*  localStorage.setItem("code",code);
+        var wxcode=localStorage.getItem("code");
+        alert(wxcode);*/
+       /* var wxurl2="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx6abc12345add9a62&secret=9100be1293e57ae49372cf8fce92fd8e&code="+code+"&grant_type=authorization_code";
+        var wxurl3="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx6abc12345add9a62&secret=9100be1293e57ae49372cf8fce92fd8e&code="+code+"&grant_type=authorization_code";
+        $.ajax({
+            url:wxurl2,
+            type:"get",
+            success:function (res,status) {
+                alert("返回数据:"+res);
+            },
+            error:function (data) {
+                alert(data.errcode);
+            }
+        });*/
+    };
+
+/*思路：
+* 先把所有奖品中奖概率总和获取到，index随机数的范围就在0-总和这个区间。
+* 判断随机数属于的区间，对应不同的中奖位置*/
+</script>
+<div id="result" style="left: 10%">
+    <button style="width: 5rem;height: 3rem;border: none;background: gray;color: white;">确定</button>
+</div>
+</body>
+</html>
+<script>
+    $(".login").click(function () {
+        var phone=$("input[name='phone']").val();
+        var pwd=$("input[name='pwd']").val();
+        console.log(phone,pwd);
+        $.ajax({
+            url:"http://120.27.215.48:8081/duifang/servlet/Login",
+            data:"opt=login&phone="+phone+"&password="+pwd,
+            type:"post",
+            success:function (res,status) {
+                console.log(res);
+                if(res.code===200){
+                    console.log("查询成功！");
+                    localStorage.setItem("uid",res.uid);
+                    localStorage.setItem("nickname",res.nickname);
+                    localStorage.setItem("huanxinAccount",res.huanxinAccount);
+                    localStorage.setItem("huanxinPassword",res.huanxinPassword);
+                    localStorage.setItem("password",res.password);
+                    localStorage.setItem("phone",res.phone);
+                    localStorage.setItem("pic",res.pic);
+                    alert("登录成功！");
+                    $("#myModal").modal("hide");
+                }else{
+                    alert(res.message);
+                }
+            }
+        })
+    });
+    $(".yzm").click(function () {
+        var that=$(this);
+        var time=60;
+        var timer=setInterval(function () {
+            if(time<=0){
+                clearInterval(timer);
+                that.html("获取验证码");
+            }else{
+                time--;
+                that.html(time);
+            }
+        },1000);
+
+        phone1=$("input[name='phone1']").val();
+        mima=$("input[name='pwd1']").val();
+        function isPhoneNo(phone) {
+            var pattern = /^1[34578]\d{9}$/;
+            return pattern.test(phone);
+        }
+        if(phone1===" "){
+            alert("手机号不能为空！");
+        }else if(!isPhoneNo(phone1)){
+            alert("手机号格式不正确！");
+        }else{
+            $.ajax({
+                url:"http://120.27.215.48:8081/duifang/servlet/Obtainsms",
+                data:"opt=verification&phone="+phone1,
+                type:"post",
+                success:function (res,status) {
+                    console.log(res);
+                    if(res.code===200){
+                        alert("验证码发送成功！");
+                        $(".rr").click(function () {
+                            var mima=res.data;//获取验证码
+                            yzz=$("input[name='yz']").val();
+                            console.log(yzz);
+                              if(mima==yzz){
+                                  $.ajax({
+                                      url:"http://120.27.215.48:8081/duifang/servlet/Login",
+                                      data:"opt=register&phone="+phone1+"&type=0&password="+mima+"&auth_code="+yzz,
+                                      type:"post",
+                                      success:function (res,status) {
+                                          console.log(res);
+                                          if(res.code===200){
+                                              alert("注册成功！");
+                                              $("#myModal").modal("show");
+                                              $("#myModal2").modal("hide");
+                                          }else{
+                                              alert(res.message);
+                                          }
+                                      }
+                                  });
+                              }else{
+                                  alert("验证码有误！");
+                              }
+                        })
+                    }else{
+                        alert(res.message);
+                    }
+                }
+            })
+        }
+    });
+    $(".register").click(function () {
+        $("#myModal").modal("hide");
+        $("#myModal2").modal("show");
+    });
+    $(".zz").click(function () {
+        $("#myModal").modal("show");
+        $("#myModal2").modal("hide");
+    });
+
+    $(".record").textSlider({line:3,speed:1000,timer:3000});
+</script>

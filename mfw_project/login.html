@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        #myModal{
+            width: 100%;
+        }
+        .modal-dialog{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+</div>
+<div class="bottom">
+
+</div>
+<form  autocomplete="off">
+    <div>
+        <span><img src="images/手机@2x.png" alt=""></span>
+        <input type="text" class="sj" name="phone" required="required" placeholder="请输入手机号码" autocomplete="off">
+        <img src="images/关闭@2x.png" alt="" class="cancel">
+    </div>
+    <div>
+        <span class="mm"><img src="images/mima@2x.png" alt=""></span>
+        <input type="password" class="mima" name="pwd" required="required" placeholder="请输入密码" autocomplete="off">
+        <img src="images/yc.png" alt="" class="kejian">
+    </div>
+    <input type="button" class="login" value="登录">
+    <a href="register.html">忘记密码？</a>
+</form>
+<a href="register.html" class="re"><span>没有账号？</span>点击注册</a>
+</body>
+</html>
+<script>
+    $(".login").click(function () {
+        var phone=$("input[name='phone']").val();
+        var pwd=$("input[name='pwd']").val();
+        console.log(phone,pwd);
+        $.ajax({
+            url:"http://120.27.215.48:8081/duifang/servlet/Login",
+            data:"opt=login&phone="+phone+"&password="+pwd,
+            type:"post",
+            success:function (res,status) {
+                console.log(res);
+                if(res.code===200){
+                    console.log("查询成功！");
+                    localStorage.setItem("uid",res.uid);
+                    localStorage.setItem("nickname",res.nickname);
+                    localStorage.setItem("huanxinAccount",res.huanxinAccount);
+                    localStorage.setItem("huanxinPassword",res.huanxinPassword);
+                    localStorage.setItem("password",res.password);
+                    localStorage.setItem("phone",res.phone);
+                    localStorage.setItem("pic",res.pic);
+                    localStorage.setItem("token",res.token);
+                    alert("登录成功！");
+                    $(window).attr("location","submitOrder.html");
+                }else{
+                    alert(res.message);
+                    console.log(res);
+                }
+            }
+        })
+    });
+    var zh=localStorage.getItem("zhanghao");
+    var mim=localStorage.getItem("passwd");
+    if(zh&&mim){
+        $("input[type='text']").val(zh);
+        $("input[type='password']").val(mim);
+    }
+    $(".cancel").click(function () {
+       $("input[name='phone']").val("");
+    });
+    $(".kejian").click(function () {
+        if($(this).attr("src")==="images/yc.png"){
+            $(this).attr("src","images/可见@2x.png");
+            $("input[name='pwd']").attr("type","text");
+        }else{
+            $(this).attr("src","images/yc.png");
+            $("input[name='pwd']").attr("type","password");
+        }
+
+    });
+</script>

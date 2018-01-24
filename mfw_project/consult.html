@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/loupan.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<script src='//kefu.easemob.com/webim/easemob.js?configId=f69872ec-1264-4da1-aa01-230f2b4894e6'></script>
+<body>
+<script>
+    window.easemobim = window.easemobim || {};
+    easemobim.config = {
+        hide: true,
+        configId: 'f69872ec-1264-4da1-aa01-230f2b4894e6',
+        //聊天窗口加载成功回调
+        onready: function () {
+            easemobim.sendExt({
+                ext:{
+                    "imageName": "mallImage3.png",
+                    //custom代表自定义消息，无需修改
+                    "type": "custom",
+                    "msgtype": {
+                        "track":{
+                            "title":"我正在看：",
+                            "price":"¥: 235.00",
+                            "desc":"女装小香风气质蕾丝假两件短袖",
+                            "img_url":"https://www.yourdomain.com/img/a.jpg",
+                            "item_url":"https://www.yourdomain.com/item/a.html"
+                        }
+                    }
+                }
+            });
+        }
+    };
+</script>
+<script src='//kefu.easemob.com/webim/easemob.js'></script>
+</body>
+</html>

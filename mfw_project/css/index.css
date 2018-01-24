@@ -1,0 +1,177 @@
+@import "public.css";
+.tab{
+    width: 100%;
+    height: 1rem;
+    text-align: center;
+    font-size: 0.24rem;
+    /*padding: 0.20rem;*/
+    /*margin: 0.24rem 0;*/
+    display: flex;
+    justify-content: space-around;
+}
+.tab a{
+    width: 50%;
+    height: 100%;
+    line-height:1rem;
+    color: black;
+    font-size: 0.3rem;
+}
+.tab a:hover{
+    text-decoration: none;
+}
+.tab .choosed{
+    color: #51ABFF;
+}
+.lists{
+    background: white;
+}
+.list{
+    width: 100%;
+    padding: 0 0.19rem;
+    margin-bottom: 0.19rem;
+}
+.listBox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: .1rem;
+    border-bottom: 1px solid #D7D7D7;
+    /*-webkit-border-radius: 0.06rem;*/
+    /*-moz-border-radius: 0.06rem;*/
+    /*border-radius: 0.06rem;*/
+    /*background: #fff;*/
+    /*padding: 0.20rem 0;*/
+    /*-webkit-box-shadow: 0 0 0.02rem 0.01rem #c9c9c9;*/
+    /*-moz-box-shadow: 0 0 0.02rem 0.01rem #c9c9c9;*/
+    /*box-shadow: 0 0 0.02rem 0.01rem #c9c9c9;*/
+}
+.listBox .left{
+    font-size: 0;
+    padding: 0.20rem 0.15rem;
+    border-right: 0.02rem solid #F7F7F7;
+}
+.listBox .middle{
+    min-width: 55%;
+    padding: 0 0.15rem;
+}
+.listBox img{
+    width: 1.19rem;
+    height:1.15rem;
+}
+.listBox .mTop{
+    height:0.70rem;
+    line-height:0.34rem;
+}
+.listBox .mTop span{
+    display: block;
+}
+.listBox .mMiddle{
+    height: 0.34rem;
+    line-height: 0.34rem;
+    margin: 0.1rem 0;
+}
+.listBox .mBottom{
+    height: 0.34rem;
+    line-height: 0.34rem;
+}
+.list .listBox .images{
+    font-size: 0;
+    /*margin-right: 0.1rem;*/
+}
+.listBox .middle .time{
+    font-size: 0.22rem;
+    color: #414141;
+    margin-bottom: 0.05rem;
+}
+.listBox .middle .title{
+    font-size: 0.26rem;
+    color: #777;
+}
+.listBox .middle img,.listBox .right img{
+    width: 0.34rem;
+    height: 0.34rem;
+}
+.listBox .mMiddle span{
+    font-size: 0.22rem;
+}
+.listBox .mBottom span{
+    font-size: 0.21rem;
+    color: #99C8DD;
+}
+.listBox .mBottom .cuidan{
+    font-size: 0.19rem;
+    color: #51ABFF;
+    margin-left: -0.1rem;
+}
+.listBox .right span{
+    font-size: 0.26rem;
+    font-weight: 700;
+}
+.listBox span,.listBox img,.listBox .mBottom a{
+    vertical-align: middle;
+}
+.listBox>.right>a{
+    display: block;
+    height:0.34rem;
+    line-height: 0.1rem;
+}
+.listBox>.right>a:first-child{
+    margin-bottom: 0.42rem;
+    color: #FF8484;
+}
+.listBox>.right>a:last-child {
+    margin-bottom: 0;
+    color: #FF8484;
+}
+.list .listBox .right .connect{
+    color: #51ABFF;
+}
+.load{
+    color: #7DD6FF;
+}
+.end{
+    color: #6FEABA;
+}
+.server{
+    color: #FFC984;
+}
+.ping{
+    color: #FF8484;
+}
+.address{
+    color: #4d4d4d;
+}
+.listBox .mMiddle .add{
+    color: #B3B3B3;
+    font-weight: normal;
+}
+.content{
+    text-align: center;
+    font-size: 0.27rem;
+    color: #7391AD;
+}
+.modal-title{
+    color: #3db8ea;
+    text-align: center;
+    font-size: 0.3rem;
+}
+.modal-dialog{
+    top: 25%;
+}
+.modal-body{
+    text-align: center;
+}
+.modal-body .top{
+    margin: 0.19rem 0 0.19rem 0;
+}
+.modal-body .top img{
+    width: 1.66rem;
+}
+.modal-body .title{
+    margin: 0.38rem 0.45rem 0;
+}
+.modal-footer{
+    border: none;
+    text-align: center;
+}

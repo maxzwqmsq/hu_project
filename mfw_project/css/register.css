@@ -1,0 +1,109 @@
+a{
+    text-decoration: none;
+}
+form{
+    width:80%;
+    height:6rem;
+    margin: -2rem auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-right: 5px;
+    border-radius: 10px;
+    box-shadow:.01rem .01rem .01rem .01rem lightgray;
+    background: white;
+    z-index: 20;
+}
+form div{
+    width: 90%;
+    height: 24%;
+    margin-left: 5%;
+    line-height: 60px;
+    overflow: hidden;
+    border-bottom: 1px solid #f8f8f8;
+}
+form div img{
+    width: .5rem;
+}
+form input{
+    font-size: .4rem;
+    border: none;
+    outline: none;
+}
+form span{
+    display: inline-block;
+    width: 2rem;
+    height: 1rem;
+    line-height: 30px;
+    text-align: center;
+    font-size: .4rem;
+    font-weight: 600;
+}
+form .sj,.mima{
+    width: 4rem;
+    margin-left: 15px;
+    height:100%;
+    color: #D7D7D7;
+    display: inline-block;
+}
+.login{
+    display: block;
+    width:3rem;
+    height: 1rem;
+    margin:60px auto;
+    border: none;
+    color: white;
+    border-radius:.1rem;
+    background: #007aff;
+    text-align: center;
+    font-size: .4rem;
+}
+.re{
+    display: block;
+    font-size:.4rem;
+    float: right;
+    margin-top: 5%;
+    margin-right: 2%;
+}
+.mm{
+    padding-left: 12%;
+}
+.yzm{
+    font-size: .4rem;
+    color: #6bacf0;
+}
+input[name='yz']{
+    width: 2.6rem;
+}
+.top{
+    width: 100%;
+    height:6rem;
+    background: #68aaff;
+}
+.xieyi{
+    width: 5rem;
+    height: 1rem;
+    line-height: 20px;
+    margin: 3rem auto;
+    margin-bottom: 0;
+}
+.ckxy{
+    text-align: center;
+    margin: 0 auto;
+    font-size: .4rem;
+}
+.xieyi img{
+    width: .4rem;
+    vertical-align: middle;
+}
+.djxy{
+    display: block;
+    width:5rem;
+    height: 1rem;
+    text-align: center;
+    margin:.5rem auto 1rem;
+    font-size: .4rem;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;//关于解决输入框背景颜色
+-webkit-text-fill-color: rgba(255,255,255,1)!important;//关于接输入框文字颜色
+}

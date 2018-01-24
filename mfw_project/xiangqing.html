@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼盘详情</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/loupan.css">
+    <link rel="stylesheet" href="css/xiangqing.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/loupan.js"></script>
+    <script src="js/xiangqing.js"></script>
+    <style>
+        .nav p{
+            flex: 1;
+            text-align: left;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QUb7DZSMTNsS3xIa8XffSZuoGolNOuR7"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div style="position: fixed;z-index: 100;width: 100%;top:0;left:0">
+    <!--<div class="nav">
+        <p>
+            <a href="loupan.html"><img src="images/返回.png" alt=""></a>
+            <a href="#" class="lb" style="margin-left: 10rem">楼盘详情</a>
+        </p>
+    </div>-->
+    <div class="lead">
+        <a href="xiangqing.html">楼盘</a>
+        <a href="huxing.html">户型</a>
+        <a href="xq.html">详情</a>
+    </div>
+</div>
+<div class="lunbo">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+    </div>
+</div>
+<div class="dizhi">
+    <p class="lp_name">
+        <span>碧桂园凤凰城</span>
+        <span>在售</span>
+        <span>精装</span>
+    </p>
+    <p class="lp_price">12000元/m2</p>
+    <div class="lp_inform">
+        <p><img src="images/dzz.png" alt="" class="dzz"> <span>地址:</span><span class="dz">碧桂园大道2号</span></p>
+        <p><img src="images/kp.png" alt="" class="kp"> <span>开盘时间:</span><span class="sltime">2107年11月20日新领11、14、18、19、20、21号楼销许，近期开盘</span></p>
+        <p><img src="images/区域均价.png" alt="" class="qjj">区域均价: <span class="junjia">24900</span>/m2</p>
+        <a href="#" class="road"><img src="images/lx.png" alt="" class="lx">路线</a>
+    </div>
+    <p class="lp_title">周边设施</p>
+    <div class="lp_zhoubian">
+        <a href="#"><img src="images/交通.png" alt="">交通</a>
+        <a href="#"><img src="images/学校.png" alt="">学校</a>
+        <a href="#"><img src="images/医疗.png" alt="">医疗</a>
+        <a href="#"><img src="images/购物.png" alt="">购物</a>
+    </div>
+    <p class="lp_dongtai lp_title">楼盘动态 <img src="images/订阅.png" alt=""></p>
+    <div class="lp_content">
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXX
+        <img src="images/更多.png" alt="">
+    </div>
+    <div class="lp_adv">
+        <a href="#">了解详情</a>
+    </div>
+    <p class="lp_title lp_dongtai">点评</p>
+    <ul class="dp_xiangqing">
+        <li class="dp_tx_1">
+            <img src="images/21.png" alt="" class="tx">
+            <a href="#" class="dp_name_1">
+                张小凡
+                <img src="images/图层23.png" alt="">
+            </a>
+            <span class="pj"><img src="images/评价5星.png" alt=""></span>
+        <p class="dp_content_1">
+            DIV是层叠样式表中的定位技术，全称DIVision，即为划分。
+            有时可以称其为图层。DIV在编程中又叫做整除，即只得商的整数。
+            DIV元素是用来为HTML（标准通用标记语言下的一个应用）
+            文档内大块（block-level）的内容提供结构和背景的元素。
+            <a class="zhankai">展开全部</a>
+            <div class="pic">
+                <img src="images/21.png" alt="" class="pic1">
+                <img src="images/21.png" alt="" class="pic2">
+                <img src="images/21.png" alt="" class="pic3">
+            </div>
+            <span class="dp_rq">2017年11月2日</span>
+            <img src="images/点赞.png" alt="">
+            <span class="dz_rs">11</span>
+        </p>
+        </li>
+    </ul>
+    <p class="lp_title lp_dongtai">问答</p>
+    <ul class="wenti">
+
+    </ul>
+    <ul class="huida">
+        <li class="fi">
+            <img src="images/答.png" alt="">
+            <span></span>
+        </li>
+    </ul>
+    <p class="lp_title">楼盘对比</p>
+    <div class="lp_duibi">
+        <a> <img src="images/同区域icon.png" alt="">同区域</a>
+        <a> <img src="images/同类型icon.png" alt="">同类型</a>
+    </div>
+    <ul class="duibi">
+        <li>
+            <img src="images/21.png" alt="">
+            <p>保利堂悦翡翠公馆</p>
+            <p>30000元/m2</p>
+            <p>建面45m2</p>
+            <span class="zs_span">在售</span>
+            <span class="zs_span">精装修</span>
+            <span class="zaishou">
+                <img src="images/在售.png" alt="">
+                <span class="zs">在售</span>
+            </span>
+        </li>
+        <li>
+            <img src="images/21.png" alt="">
+            <p>保利堂悦翡翠公馆</p>
+            <p>30000元/m2</p>
+            <p>建面45m2</p>
+            <span class="zs_span">在售</span>
+            <span class="zs_span">精装修</span>
+            <span class="zaishou">
+                <img src="images/在售.png" alt="">
+                <span class="zs">在售</span>
+            </span>
+        </li>
+        <li>
+            <img src="images/21.png" alt="">
+            <p>保利堂悦翡翠公馆</p>
+            <p>30000元/m2</p>
+            <p>建面45m2</p>
+            <span class="zs_span">在售</span>
+            <span class="zs_span">精装修</span>
+            <span class="zaishou">
+                <img src="images/在售.png" alt="">
+                <span class="zs">在售</span>
+            </span>
+        </li>
+    </ul>
+    <p class="lp_title lp_dongtai">楼栋信息</p>
+    <div class="ld_info">
+        <img src="" alt="" class="quanjing">
+        <ul class="info_li">
+            <li><img src="images/单元数.png" alt="">
+            单元数:   <span>三个单元</span></li>
+            <li><img src="images/梯户比.png" alt="">
+                梯户比:   <span>一梯两户</span></li>
+            <li><img src="images/楼层.png" alt="">
+                楼层:   <span>18层</span></li>
+            <li><img src="images/总户数.png" alt="">
+                总户数:   <span>63</span></li>
+            <li><img src="images/开盘时间_75.png" alt="">
+                开盘时间:   <span>2017-12-21</span></li>
+            <li><img src="images/交房时间.png" alt="">
+                交房时间:   <span>2018-2-21</span></li>
+        </ul>
+    </div>
+</div>
+<div class="zixun">
+    <a href="#" class="zx" data-target="#myModal">在线咨询</a>
+    <a href="#" class="yy" data-target="#myModal">预约服务</a>
+    <a href="#" class="dh">电话咨询</a>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+                <div class="sj">
+                    手机号：<input type="text" name="phone" autocomplete="off">
+                </div>
+                <div class="sj">
+                    密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd" autocomplete="off">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default login">立即登录</button>
+                <button type="button" class="btn btn-primary register" data-target="#myModal2">没有账号？点击注册</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">注册</h4>
+            </div>
+            <div class="modal-body">
+                <div class="sj zcsj">
+                    手机号：<input type="text" name="phone1" autocomplete="off" class="number">
+                    <a href="#" class="yzm" style="display: block">获取验证码</a>
+                </div>
+                <div class="sj zcmm">
+                    密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd1" autocomplete="off" class="pass">
+                </div>
+                <div class="sj zcyz">
+                    验&nbsp;证&nbsp;码&nbsp;：<input type="text"  name="yz" class="yz">
+                </div>
+                <div class="sj">
+                    推广人id：<input type="text" >
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default rr">立即注册</button>
+                <button type="button" class="btn btn-primary zz" >已有账号？点击登录</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<script>
+    var mySwiper = new Swiper ('.lunbo .swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        observer:true,//修改swiper自己或子元素时，自动初始化swiper
+        observeParents:true//修改swiper的父元素时，自动初始化swiper
+    })
+</script>
+</body>
+</html>
+<script>
+    $(".zx").click(function () {
+        var userid=localStorage.getItem("uid");
+        if(!userid){
+            var a=confirm("请先登录！");
+            console.log(a);
+            if(a===true){
+                $("#myModal").modal("show");
+            }
+        }else{
+                var img=localStorage.getItem("img");
+                var title=localStorage.getItem("title");
+                var uname=localStorage.getItem("huanxinAccount");
+                var upass=localStorage.getItem("huanxinPassword");
+                console.log(uname);
+                console.log(upass);
+                window.easemobim = window.easemobim || {};
+                easemobim.config = {
+                    configId: 'f69872ec-1264-4da1-aa01-230f2b4894e6',
+                    //聊天窗口加载成功回调
+                    user: {
+                        // username 必填，password 和 token 任选一项填写
+                        username:uname,
+                        password: upass,
+                        token: 'YWMtzGo52JaqEeeELnmPrOc5h15sv_A0eRHkoOT3YpQCxx70JPTKiW4R56U-k0L6lDp3AwMAAAFebzmSdABPGgCyzGooJgc5V4LBxr0TtaAsXQld8naV_3qc-8GEDDMAHw'
+                    },
+                    onready: function () {
+                        easemobim.sendExt({
+                            ext:{
+                                "imageName": "mallImage3.png",
+                                //custom代表自定义消息，无需修改
+                                "type": "custom",
+                                "msgtype": {
+                                    "track":{
+                                        "title":"我正在看：",
+                                        "desc":title,
+                                        "img_url":img,
+                                        "item_url":"https://www.yourdomain.com/item/a.html"
+                                    }
+                                }
+                            }
+                        });
+                    }
+                };
+                easemobim.bind({configId: "f69872ec-1264-4da1-aa01-230f2b4894e6"});
+        }
+    });
+    $(".yy").click(function () {
+           var userid=localStorage.getItem("uid");
+           if(!userid){
+               var a=confirm("请先登录！");
+               console.log(a);
+               if(a===true){
+                   $("#myModal").modal("show");
+               }
+           }else{
+               $(window).attr("location","submitOrder.html");
+           }
+       });
+    $(".dh").click(function () {
+        var that=$(this);
+      $.ajax({
+          url:"http://120.27.215.48:8081/duifang/servlet/UserServlet?opt=kefu&type=1",
+          type:"post",
+          success:function (res,status) {
+                console.log(res);
+                var tel=res.data.telephone;
+                that.attr("href","tel://"+tel);
+          }
+      })
+    });
+   $(".login").click(function () {
+       var phone=$("input[name='phone']").val();
+       var pwd=$("input[name='pwd']").val();
+       console.log(phone,pwd);
+       $.ajax({
+           url:"http://120.27.215.48:8081/duifang/servlet/Login",
+           data:"opt=login&phone="+phone+"&password="+pwd,
+           type:"post",
+           success:function (res,status) {
+               console.log(res);
+               if(res.code===200){
+                   console.log("查询成功！");
+                   localStorage.setItem("uid",res.uid);
+                   localStorage.setItem("nickname",res.nickname);
+                   localStorage.setItem("huanxinAccount",res.huanxinAccount);
+                   localStorage.setItem("huanxinPassword",res.huanxinPassword);
+                   localStorage.setItem("password",res.password);
+                   localStorage.setItem("phone",res.phone);
+                   localStorage.setItem("pic",res.pic);
+                   alert("登录成功！");
+                   $("#myModal").modal("hide");
+               }else{
+                   alert(res.message);
+               }
+           }
+       })
+   });
+   $(".yzm").click(function () {
+       var that=$(this);
+       var time=60;
+       var timer=setInterval(function () {
+           if(time<=0){
+               clearInterval(timer);
+               that.html("获取验证码");
+           }else{
+               time--;
+               that.html(time);
+           }
+       },1000);
+
+       phone1=$("input[name='phone1']").val();
+       mima=$("input[name='pwd1']").val();
+       function isPhoneNo(phone) {
+           var pattern = /^1[34578]\d{9}$/;
+           return pattern.test(phone);
+       }
+       if(phone1===" "){
+           alert("手机号不能为空！");
+       }else if(!isPhoneNo(phone1)){
+           alert("手机号格式不正确！");
+       }else{
+           $.ajax({
+               url:"http://120.27.215.48:8081/duifang/servlet/Obtainsms",
+               data:"opt=verification&phone="+phone1,
+               type:"post",
+               success:function (res,status) {
+                   console.log(res);
+                   if(res.code===200){
+                       alert("验证码发送成功！");
+                       $(".rr").click(function () {
+                           var mima=res.data;//获取验证码
+                           yzz=$("input[name='yz']").val();
+                           console.log(yzz);
+                           if(mima==yzz){
+                               $.ajax({
+                                   url:"http://120.27.215.48:8081/duifang/servlet/Login",
+                                   data:"opt=register&phone="+phone1+"&type=0&password="+mima+"&auth_code="+yzz,
+                                   type:"post",
+                                   success:function (res,status) {
+                                       console.log(res);
+                                       if(res.code===200){
+                                           alert("注册成功！");
+                                           $("#myModal").modal("show");
+                                           $("#myModal2").modal("hide");
+                                       }else{
+                                           alert(res.message);
+                                       }
+                                   }
+                               });
+                           }else{
+                               alert("验证码有误！");
+                           }
+                       })
+                   }else{
+                       alert(res.message);
+                   }
+               }
+           })
+       }
+   });
+   $(".register").click(function () {
+       $("#myModal").modal("hide");
+       $("#myModal2").modal("show");
+   });
+   $(".zz").click(function () {
+       $("#myModal").modal("show");
+       $("#myModal2").modal("hide");
+   })
+</script>
+<script src='//kefu.easemob.com/webim/easemob.js'></script>

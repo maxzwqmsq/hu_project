@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务详情</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        .content{
+            width: 100%;
+            height: auto;
+            word-wrap:break-word;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+        .content > * {
+            width: 100%;
+            font-size:1.6rem;
+            word-wrap:break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+<p class="content">
+
+</p>
+<script>
+    function getUrlParam(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!==null) return unescape(r[2]); return null; //返回参数值
+    }
+    var serveid=getUrlParam("id");
+    var html;
+    $.ajax({
+        url:"http://120.27.215.48:8082/duifang/servlet/UserServlet?opt=fuwujihuashu",
+        type:"post",
+        success:function (res, status) {
+            if(res.code===200){
+                var content=res.data.content;
+                var str="<br style='content: &quot;;' />";
+                html=res.data.content.substring(content.indexOf("<body>")+6,content.indexOf("</body>"));
+                html=html.replace(str,"<br>");
+                console.log(html);
+                $(".content").html(html);
+            }
+        }
+    })
+</script>
+</body>
+</html>

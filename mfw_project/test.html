@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="nav">
+    11111111111111
+    22222222222222
+    3333333333333333
+    555555555555555
+    66666666666666
+    77777777777
+    888888888888
+</div>
+</body>
+</html>
+<script>
+    jQuery(function($) {
+        $('#nav')
+            .bind('mousewheel', function(event, delta) {
+                var dir = delta > 0 ? 'Up' : 'Down';
+                if (dir == 'Up') {
+                    console.log("向上滚动， www.imiansha.com");
+                } else {
+                    console.log("向下滚动， http: //blog.csdn.net/u011627980");
+                        }
+                return false;
+            });
+    });
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+<a href="#">点击授权</a>
+</body>
+<script>
+
+    var url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6abc12345add9a62&redirect_uri=yizhifang.ahaoneng.com&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+    $("a").click(function () {
+        $(window).attr("location",url);
+    })
+</script>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/loupan.css">
+    <link rel="stylesheet" href="css/xiangqing.css">
+    <style type="text/css">
+        body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #l-map{height:500px;width:100%;}
+        #r-result{width:100%;}
+        p{margin-left:5px; font-size:14px;}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QUb7DZSMTNsS3xIa8XffSZuoGolNOuR7"></script>
+</head>
+<body>
+<div style="position: fixed;z-index: 100;width: 100%;top:0">
+    <div class="nav">
+        <p>
+            <a href="xiangqing.html" ><img src="images/返回.png"></a>
+            <a href="#" class="lb">周边设施</a>
+        </p>
+    </div>
+    <div class="lead">
+        <a href="transport.html">交通</a>
+        <a href="school.html">学校</a>
+        <a href="hospital.html">医疗</a>
+        <a href="shopping.html">购物</a>
+    </div>
+</div>
+<div id="l-map"></div>
+<div id="r-result"></div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("l-map");
+    map.enableScrollWheelZoom(true);
+    var longitude=localStorage.getItem("longitude");
+    var latitude=localStorage.getItem("latitude");
+    map.centerAndZoom(new BMap.Point(longitude, latitude), 11);
+    var local = new BMap.LocalSearch(map, {
+        renderOptions:{map: map,panel: "r-result"}
+    });
+    local.search("车站");
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电话咨询</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .nav p{
+            flex: 1;
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+<a href="tel://025-85997716" style="text-decoration: none"><span style="color: transparent">点击拨打</span></a>
+</body>
+</html>
+<script>
+    $(function () {
+        $("a span").click();
+    })
+</script>
