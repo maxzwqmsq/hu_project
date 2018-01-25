@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>发表问题</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+</head>
+
+<body>
+    <div style="position: fixed;z-index: 100;width: 100%;top:0;left: 0">
+        <div class="nav">
+            <p>
+                <a href="shouye.html" class="back"><img src="images/返回.png"></a>
+            </p>
+            <p>
+                <a href="#" class="title">发表问题</a>
+            </p>
+        </div>
+        <div class="question-box">
+            <div class="weui-cells__title"></div>
+            <div class="weui-cells box-color">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <input class="weui-input" type="text" placeholder="请输入问题">
+                </div>
+              </div>
+            </div>
+
+            <div class="weui-cells__title"></div>
+            <div class="weui-cells weui-cells_form box-color">
+              <div class="weui-cell">
+                <div class="weui-cell__bd">
+                  <textarea class="weui-textarea box-color" placeholder="问题详细内容" rows="8"></textarea>
+                  <!-- <div class="weui-textarea-counter"><span>0</span>/200</div> -->
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="weui-cells__title">标签选择</div>
+                <div class="ques_label">
+
+                </div>
+            </div>
+            <div class="post-answer">
+                提交
+            </div>
+        
+</body>
+<script>
+$(function () {
+        $(".back").click(function () {
+            $(window).attr("location","sellquestion.html");
+        });
+        //获取标签
+        var url = "http://120.27.215.48:8081/duifang/servlet/Question";
+        var userid = localStorage.getItem("uid");
+        var lable;
+        //获取问题标签
+        $.ajax({
+            url: url,
+            type: "post",
+            data: "opt=wentibiaoqian",
+            success: function(res, status) {
+                console.log(res);
+                for (var i = 0; i < res.data.length; i++) {
+                    $(".ques_label").append(`
+                        <label class="label" id=${res.data[i].name}>
+                            <input type="checkbox" class="que-checkbox" value=false>
+                                ${res.data[i].name}
+                            </input>
+                        </label>
+                        `);
+                }
+
+            }
+        });
+           // if(select){
+        //     $scope.formModal.keywords.push(key);
+        //     document.getElementById(key).classList.add('btn-selected');
+        // }else{
+        //     document.getElementById(key).classList.remove('btn-selected');
+        // }
+      
+    }
+        $(".post-answer").click(
+            function(){
+                $.alert("您的问题已成功提交"+`<br>`+"我们会尽快完成审核", "成功", function() {
+                    //点击确认后的回调函数
+                    $(window).attr("location","sellquestion.html");
+                });
+            })
+        
+
+    })
+
+   
+</script>
+
+</html>
+<style>
+.ques_label {
+    width: 100%;
+    height: 2rem;
+    padding-left: .5rem;
+    padding-top: .5rem; 
+}
+.ques_label .label{
+    width: auto;
+    display: inline-block;
+    line-height: .2rem;
+    height: 1rem;
+    padding: .2rem;
+    margin-right: .3rem;
+    background: #e3e3e3;
+    border-radius: .2rem;
+    border: 1px solid #3c90fd;
+    font-size: .5rem;
+    cursor: pointer;
+}
+
+.btn-selected{
+    background: #95CCFE;
+    border-radius: .2rem;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    background: #4faafd;
+}
+
+
+.nav p {
+    flex: 1;
+    text-align: left;
+}
+
+.nav p a {
+    display: inline-block;
+    font-size: .9rem;
+    color: white;
+    line-height: 2.5rem;
+}
+
+.back{
+    margin-left: 1em;
+}
+.back>img{
+    position: relative;
+    top:3px;
+}
+.title{
+    margin-left:-2em;
+}
+.weui-cells{
+    margin-top: 0;
+}
+.box-color{
+    background: #F3F3F3;
+}
+ 
+.question-box{
+    padding-left: .5em;
+    padding-right: .5em;
+}
+.question-box div{
+    border-radius: .5em;
+}
+
+.question-box input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+
+    color: #B4B4B4;font-size:0.5em;
+}
+.question-box input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #B4B4B4;font-size:0.5em;
+}
+.question-box input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #B4B4B4;font-size:0.5em;
+}
+.question-box input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #B4B4B4;font-size:0.5em;
+}
+.post-answer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #4faafd;
+    text-align: center;
+    color: white;
+    height: 3em;
+    line-height: 3em;
+
+}
+.weui-dialog{
+    border-radius: 1em;
+}
+.que-checkbox{
+    /*display: none;*/
+}
+
+</style>

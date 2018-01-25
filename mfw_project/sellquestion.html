@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>买房问答</title>
@@ -8,6 +9,7 @@
     <script src="js/sellquestion.js"></script>
     <script src="js/rem.js"></script>
 </head>
+
 <body>
     <div style="position: fixed;z-index: 100;width: 100%;top:0;left: 0">
         <div class="nav">
@@ -19,7 +21,7 @@
             </p>
             <p>
                 <a href="#" class="search">
-                    <img src="images/搜索@2x.png" alt="">
+                    <!--   <img src="images/搜索@3x.png" alt=""> -->
                 </a>
             </p>
         </div>
@@ -34,38 +36,52 @@
 </body>
 
 </html>
+<script>
+    $(function () {
+        $(".ques_footer").click(function () {
+            $(window).attr("location","fabiaowenti.html");
+        });
+    })
+</script>
 <style>
     .nav {
-    display: flex;
-    width: 100%;
-    background: #4faafd;
-}
+        display: flex;
+        width: 100%;
+        background: #4faafd;
+    }
 
+    .nav p {
+        flex: 1;
+        text-align: left;
+    }
 
-.nav p {
-    flex: 1;
-    text-align: left;
-}
+    .nav p a {
+        display: inline-block;
+        font-size: 0.7em;
+        color: white;
+        line-height: 2em;
+        text-decoration: none;
+    }
 
-.nav p a {
-    display: inline-block;
-    font-size: 0.7em;
-    color: white;
-    line-height: 2em;
-    text-decoration: none;
-}
+    .back {
+        margin-left: 0.5em;
+    }
 
-.back{
-    margin-left: 0.5em;
-}
-.back>img{
-    position: relative;
-    top:3px;
-}
-.title{
-    margin-left:-2em;
-}
-.search{
-    margin-right: 1em;
-}
+    .back>img {
+        position: relative;
+        top: 3px;
+        height: .7em;
+    }
+
+    .search {
+        float: right;
+        margin-right: 1em;
+        margin-top: .1em;
+    }
+    .title {
+        font-size: .6em!important;
+    }
+    .ques_label {
+        margin-top: 1.5rem;
+    }
 </style>

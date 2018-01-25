@@ -34,8 +34,14 @@ input::-webkit-input-placeholder{
 .nav .position{
     flex: 1;
     line-height: .9rem;
+    font-size: 0.8em;
     text-align: center;
 }
+.nav .position>img{
+    position: relative;
+    top: -7px;
+    left: -6px;
+    }
 .nav input{
     flex: 4;
     height: .5rem;

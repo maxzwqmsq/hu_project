@@ -21,6 +21,10 @@ ul{
     border: 1px solid #3c90fd;
     font-size: .4rem;
 }
+.ques_label .label:active{
+    background: #95CCFE;
+    
+}
 .ques_body{
     padding: 0 .4rem 0 .8rem;
     list-style: none;
