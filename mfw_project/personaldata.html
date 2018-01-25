@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+    <script src="js/BenUpload.min.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,8 @@
                 <div class="weui-cell__bd">
                     <p>头像</p>
                 </div>
-                <div class="weui-cell__ft">
+                <div class="weui-cell__ft uploadImg">
+                    <input type="file" capture="camera" class="uploadfile"/>
                     <img class="userImg" src="images/qq@2x.png" alt="">
                 </div>
             </a>
@@ -37,7 +39,7 @@
                     <p>用户名</p>
                 </div>
                 <div class="weui-cell__ft userName">
-                    11
+
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
@@ -45,7 +47,7 @@
                     <p>昵称</p>
                 </div>
                 <div class="weui-cell__ft nickName">
-                    小精钢
+                    
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
@@ -103,7 +105,40 @@ $(function () {
             postPersionData();
         });
 
-        //获取个人信息
+
+        //上传头像
+        BenUploadUtils({
+                dom: ".uploadfile",     // 需要挂在的DOM
+                url: "/",               // 上传的服务器地址
+                limitSize: 10240000,    // 1024000kb
+                limitFormat: 'gif,jpg,jpeg,png,GIF,JPG,PNG', // 使用什么格式
+                limitSizeCallback: function(err){   // 限制大小的回调事件
+                    // console.log(err);
+                },
+                limitFormatCallback: function(err){ // 限制格式的回调事件
+                    // console.log(err);
+                },
+                onUploadBeforeCallback: function(res){  // 上传图片之前的回调事件
+                    // console.log(res);
+                },
+                onUploadSuccessCallback: function(res){ // 上传成功的回调事件
+                    // console.log(res);
+                },
+                onUploadFailCallback: function(res){ // 上传失败的回调事件
+                    // console.log(res);
+                },
+                onUploadAlwaysCallback: function(res){  // 上传无论什么结果的回调事件
+                    // console.log(res);
+                },
+                onRenderResizerBefore: function(res){   // 压缩之前的回调事件
+                    // $("#preview").attr("src",res);
+                },
+                onRenderResizerAfter: function(res){    // 压缩之后的回调事件
+                    $(".userImg").attr("src",res);
+                }
+            }).init();
+
+        // 获取个人信息
         // var token = localStorage.getItem("token");
         // $.ajax({    
         //     url:"http://120.27.215.48:8081/duifang/servlet/Operation",
@@ -111,9 +146,21 @@ $(function () {
         //     type:"post",
         //     success:function (res,status) {
         //         console.log(res);
-        //         $(".userName").text(res.data.realName);
-        //         $(".nickName").text(res.data.name);
-        //         $("#data-pick").val(res.data.brithdate);
+        //         if(res.data.realName){
+        //           $(".userName").text(res.data.realName);
+        //         }else{
+        //           $(".userName").text("请输入用户名");
+        //         }
+        //         if(res.data.name){
+        //           $(".nickName").text(res.data.realName);
+        //         }else{
+        //           $(".nickName").text("请输入昵称");
+        //         }
+        //         if(res.data.brithdate){
+        //             $("#data-pick").val(res.data.brithdate);
+        //         }else{
+        //             $("#data-pick").val("请选择出生日期");
+        //         }
         //         if(res.data.sex=="1"){
         //             $("#girl").attr("checked","checked")
         //         }else{
@@ -150,7 +197,6 @@ $(function () {
         //用户名
         $(".userName").click(function () {
             $.prompt("","请输入用户名", function(key) {
-              //点击确认后的回调函数
                 $(".userName").text(key);
                 realname = $(".userName").text();
             }, function() {
@@ -160,11 +206,10 @@ $(function () {
         // 昵称
         $(".nickName").click(function () {
             $.prompt("","请输入昵称", function(key) {
-              //点击确认后的回调函数
                 $(".nickName").text(key);
                 nickname = $(".nickName").text();
             }, function() {
-              //点击取消后的回调函数
+
             });
         });
 
@@ -222,5 +267,19 @@ $(function () {
 }
 .weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before {
     color: #4FAAFD;
+}
+.uploadImg{
+    position: relative;
+
+}
+.uploadfile{
+    position: absolute;
+    left: -10em;
+    top: 0;
+    height: 7em;
+    opacity: 0;
+}
+.userImg{
+    height: 3em;
 }
 </style>
