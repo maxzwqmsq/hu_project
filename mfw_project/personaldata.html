@@ -28,7 +28,7 @@
                     <p>头像</p>
                 </div>
                 <div class="weui-cell__ft">
-                    <img src="images/qq@2x.png" alt="">
+                    <img class="userImg" src="images/qq@2x.png" alt="">
                 </div>
             </a>
             <div class="gray"></div>
@@ -36,15 +36,15 @@
                 <div class="weui-cell__bd">
                     <p>用户名</p>
                 </div>
-                <div class="weui-cell__ft">
-                    葫芦
+                <div class="weui-cell__ft userName">
+                    11
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
                 <div class="weui-cell__bd">
                     <p>昵称</p>
                 </div>
-                <div class="weui-cell__ft">
+                <div class="weui-cell__ft nickName">
                     小精钢
                 </div>
             </a>
@@ -53,18 +53,18 @@
                     <p>性别</p>
                 </div>
                 <div class="weui-cells weui-cells_checkbox">
-                  <label class="weui-cell weui-check__label" style="float:left" for="s11">
+                  <label class="weui-cell weui-check__label" style="float:left" for="boy">
                     <div class="weui-cell__hd">
-                      <input type="radio" class="weui-check" name="checkbox1" id="s11" checked="checked">
+                      <input type="radio" class="weui-check" name="sexradio" id="boy" value="0" checked="checked">
                       <i class="weui-icon-checked"></i>
                     </div>
                     <div class="weui-cell__bd">
                       <p>男</p>
                     </div>
                   </label>
-                  <label class="weui-cell weui-check__label" style="float:left;" for="s12">
+                  <label class="weui-cell weui-check__label" style="float:left;" for="girl">
                     <div class="weui-cell__hd">
-                      <input type="radio" name="checkbox1" class="weui-check" id="s12">
+                      <input type="radio" class="weui-check" name="sexradio" id="girl" value="1">
                       <i class="weui-icon-checked"></i>
                     </div>
                     <div class="weui-cell__bd">
@@ -87,16 +87,89 @@
                     <p>退出登陆</p>
                 </div>
             </a>
+            <div class="foot"></div>
         </div>
     </div>
 </body>
 <script>
 $(function () {
         $("#data-pick").calendar();
+
         $(".login-out").click(function () {
             $(window).attr("location","login.html");
         });
-    })
+
+        $(".back").click(function () {
+            postPersionData();
+        });
+
+        //获取个人信息
+        // var token = localStorage.getItem("token");
+        // $.ajax({    
+        //     url:"http://120.27.215.48:8081/duifang/servlet/Operation",
+        //     data:"opt=userxinxi&tag=1&token="+token,
+        //     type:"post",
+        //     success:function (res,status) {
+        //         console.log(res);
+        //         $(".userName").text(res.data.realName);
+        //         $(".nickName").text(res.data.name);
+        //         $("#data-pick").val(res.data.brithdate);
+        //         if(res.data.sex=="1"){
+        //             $("#girl").attr("checked","checked")
+        //         }else{
+        //             $("#boy").attr("checked","checked")
+        //         }
+        //     }
+        // });
+
+        //修改个人信息
+        var realname = ''
+        var nickname = ''
+        var sex = ''
+        var brithdate =''
+        var token = localStorage.getItem("token");
+        $("#data-pick").change(function(){
+            brithdate = $("#data-pick").val();
+            console.log(brithdate)
+        });
+        function postPersionData(){
+            sex = $('input[name="sexradio"]:checked').val;
+
+            console.log(sex)
+            $.ajax({    
+                url:"http://120.27.215.48:8081/duifang/servlet/Operation",
+                data:"opt=upeuser&pic=340&realname="+realname+"&nickname="+nickname+"&sex="+sex+"&brithdate="+brithdate+"&tag=1&token="+token,
+                type:"post",
+                success:function (res,status) {
+                    console.log(status);
+                    
+                }
+            });
+        }
+        
+        //用户名
+        $(".userName").click(function () {
+            $.prompt("","请输入用户名", function(key) {
+              //点击确认后的回调函数
+                $(".userName").text(key);
+                realname = $(".userName").text();
+            }, function() {
+              //点击取消后的回调函数
+            });
+        });
+        // 昵称
+        $(".nickName").click(function () {
+            $.prompt("","请输入昵称", function(key) {
+              //点击确认后的回调函数
+                $(".nickName").text(key);
+                nickname = $(".nickName").text();
+            }, function() {
+              //点击取消后的回调函数
+            });
+        });
+
+        
+})
 </script>
 
 </html>
@@ -139,7 +212,10 @@ $(function () {
 .weui-cells{
     margin-top: 0;
 }
-
+.foot{
+     background: #EEEEEE;
+     height: 500px
+}
 .gray{
     height: 10px;
     background: #EEEEEE;
