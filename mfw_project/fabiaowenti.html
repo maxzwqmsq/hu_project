@@ -60,7 +60,7 @@ $(function () {
         //获取标签
         var url = "http://120.27.215.48:8081/duifang/servlet/Question";
         var userid = localStorage.getItem("uid");
-        var lable;
+        var labels = [];
         //获取问题标签
         $.ajax({
             url: url,
@@ -70,61 +70,60 @@ $(function () {
                 console.log(res);
                 for (var i = 0; i < res.data.length; i++) {
                     $(".ques_label").append(`
-                        <label class="label" id=${res.data[i].name}>
-                            <input type="checkbox" class="que-checkbox">
-                                ${res.data[i].name}
-                            </input>
+                        <label class="label" id=${res.data[i].ids}>
+                            <input type="checkbox" name="label" class="que-checkbox" value=${res.data[i].ids}>
+                                <span class="que-font">${res.data[i].name}</span>
                         </label>
-                        `);
+                    `);
+
                 }
-
+                //get label
+                $('.que-checkbox').change(function(){
+                    if ($(this).prop('checked') ==true) {
+                        labels.push($(this).val());
+                        var a = $(this).val()
+                        $('#'+a+'').addClass('btn-selected')
+                    }else if($(this).prop('checked') ==false){
+                        var b = $(this).val()
+                        var a = $(this).val()
+                        labels.splice($.inArray(b,labels),1); 
+                        $('#'+a+'').removeClass('btn-selected')
+                    }
+                    console.log(labels)
+                })
             }
+
         });
-           // if(select){
-        //     $scope.formModal.keywords.push(key);
-        //     document.getElementById(key).classList.add('btn-selected');
-        // }else{
-        //     document.getElementById(key).classList.remove('btn-selected');
-        // }
-      
-    // }
-        $(".post-answer").click(
-            function(){
-                $.alert("您的问题已成功提交"+`<br>`+"我们会尽快完成审核", "成功", function() {
-                    //点击确认后的回调函数
-                    var lpId=localStorage.getItem("lpid");
-                    var userId=localStorage.getItem("uid");
-                    var title = $(".fbwt-ques").val();
-                    var content = $(".fbwt-text").val();
-                    var label = [];
-                    $.ajax({
-                        url: "http://120.27.215.48:8081/duifang/servlet/Question",
-                        type: "post",
-                        data: "opt=tianjiawenti&l_id="+lpId+"&userid="+userId+"&title="+title+"&content="+content+"&label="+label,
-                        success: function(res, status) {
-                            console.log(res);
-                            for (var i = 0; i < res.data.length; i++) {
-                                $(".ques_label").append(`
-                                    <label class="label" id=${res.data[i].name}>
-                                        <input type="checkbox" class="que-checkbox" value=false>
-                                            ${res.data[i].name}
-                                        </input>
-                                    </label>
-                                    `);
-                            }
 
-                        }
-                    });
-
-
-                    $(window).attr("location","sellquestion.html");
-                });
-            })
         
 
-    })
+       
+      
+        $(".post-answer").click(
+            function(){
+                var lpId=localStorage.getItem("lpid");
+                var userId=localStorage.getItem("uid");
+                var title = $(".fbwt-ques").val();
+                var content = $(".fbwt-text").val();
+                var label = labels.join();
+                if(!title&&!content){
+                    $.alert("请输入问题及问题详细内容！")
+                }else{
+                    $.alert("您的问题已成功提交"+`<br>`+"我们会尽快完成审核", "成功", function() {
+                        $.ajax({
+                            // url: "http://120.27.215.48:8081/duifang/servlet/Question",
+                            // type: "post",
+                            data: "opt=tianjiawenti&l_id="+lpId+"&userid="+userId+"&title="+title+"&content="+content+"&label="+label,
+                            success: function(res, status) {
+                                console.log(res);
+                            }
+                        });
+                        $(window).attr("location","sellquestion.html");
+                    });
+                }
+            })
 
-   
+    })
 </script>
 
 </html>
@@ -142,16 +141,11 @@ $(function () {
     height: 1rem;
     padding: .2rem;
     margin-right: .3rem;
-    background: #e3e3e3;
+    background: #FFFFFF;
     border-radius: .2rem;
-    border: 1px solid #3c90fd;
+    border: 1px solid #ADCEF1;
     font-size: .5rem;
     cursor: pointer;
-}
-
-.btn-selected{
-    background: #95CCFE;
-    border-radius: .2rem;
 }
 
 .nav {
@@ -228,6 +222,15 @@ $(function () {
 }
 .que-checkbox{
     /*display: none;*/
+    opacity: 0;
 }
-
+.que-font{
+    position: relative;
+    left: -9px;
+    top: 1px;
+}
+.btn-selected{
+    background: #95CCFE!important;
+    border-radius: .2rem!important;
+}
 </style>

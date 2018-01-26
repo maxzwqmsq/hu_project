@@ -51,8 +51,7 @@ $(function () {
                $roomlist.append("<li class='room_pic tag" + page + i + "'><img src='" + res.data.rmlp[i].pic + "'></li>");
                $roomlist.append("<li class='room_info tag" + page + i + "'><span class='room_title'>" + res.data.rmlp[i].title
                    + "</span><span class='junjia'>" + res.data.rmlp[i].unit_price
-                   + "元/m2</span><span class='shoujia'>" + res.data.rmlp[i].selling_price
-                   + "万起售</span>"
+                   + "元/m2</span>"
                    + "<p class='room_label'><img src='images/dw.png' class='dw'><span class='shiqu'>"
                    + res.data.rmlp[i].shi + "-" + res.data.rmlp[i].qu + "</span><span class='label'></span><span class='label'></span><span class='label'></span>"
                    + "</p></li>"
