@@ -203,7 +203,7 @@ input{
     }
     .record{
         width:94%;
-        height: 50%;
+        height: 25%;
         margin-top: 10px;
         padding-top: 20%;
         background:url("../images/record.png") no-repeat;
@@ -216,7 +216,7 @@ input{
         font-size: 1.4rem;
         position: absolute;
         left: 20%;
-        top:0;
+        top:10px;
     }
     p.number{
         width: 100%;

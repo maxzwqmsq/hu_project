@@ -88,12 +88,13 @@
                             var mima=res.data;//获取验证码
                             yzz=$("input[name='yz']").val();
                             console.log(yzz);
+                            password = $("input[name='pwd1']").val()
                             if(mima==yzz){
                                     if($("input[name='pwd1']").val()===$("input[name='pwd2']").val()){
                                         if($(".cx").attr("src")==="images/gx1.png"){
                                             $.ajax({
                                                 url:"http://120.27.215.48:8081/duifang/servlet/Login",
-                                                data:"opt=register&phone="+phone1+"&type=0&password="+$("input[name='mima']").val()+"&auth_code="+yzz,
+                                                data:"opt=register&phone="+phone1+"&type=0&password="+password+"&auth_code="+yzz,
                                                 type:"post",
                                                 success:function (res,status) {
                                                     console.log(res);

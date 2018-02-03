@@ -28,6 +28,7 @@ $(function () {
                                 console.log(res);
                                 if(res.code===200){
                                     console.log("签到成功");
+                                    $(".text_qd").text("已签到");
                                     qdopt=res.opt;
                                     $.ajax({
                                         url:url,

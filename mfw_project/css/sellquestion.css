@@ -77,8 +77,9 @@ ul{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    margin-top: .3rem;
+    margin-top: .2rem;
     color: #5b5b5b;
+    font-size: .38rem;
 }
 .daan>li{
     padding: .3rem;
@@ -127,7 +128,7 @@ ul{
     background: #68aaff;
 }
 .read>span{
-    font-size: .27rem;
+    font-size: .4rem;
     color: #6b6b6b;
 }
 .read>span>img{
@@ -136,5 +137,5 @@ ul{
     margin-right: .2rem;
 }
 .s1{
-    font-size: .2rem;
+    font-size: .4rem;
 }

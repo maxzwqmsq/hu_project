@@ -29,50 +29,50 @@
                     <p>头像</p>
                 </div>
                 <div class="weui-cell__ft uploadImg">
-                    <input type="file" capture="camera" id="inputfile" class="uploadfile"/>
+                    <input type="file" id="inputfile" class="uploadfile" />
                     <img class="userImg" src="images/qq@2x.png" alt="">
                 </div>
             </a>
             <div class="gray"></div>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
+            <a class="weui-cell weui-cell_access parName" href="javascript:;">
                 <div class="weui-cell__bd">
                     <p>用户名</p>
                 </div>
                 <div class="weui-cell__ft userName">
-
                 </div>
             </a>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
+            <a class="weui-cell weui-cell_access parNick" href="javascript:;">
                 <div class="weui-cell__bd">
                     <p>昵称</p>
                 </div>
                 <div class="weui-cell__ft nickName">
-                    
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
                 <div class="weui-cell__bd">
                     <p>性别</p>
                 </div>
-                <div class="weui-cells weui-cells_checkbox">
-                  <label class="weui-cell weui-check__label" style="float:left" for="boy">
-                    <div class="weui-cell__hd">
-                      <input type="radio" class="weui-check" name="sexradio" id="boy" value="男" checked="checked">
-                      <i class="weui-icon-checked"></i>
-                    </div>
-                    <div class="weui-cell__bd">
-                      <p>男</p>
-                    </div>
-                  </label>
-                  <label class="weui-cell weui-check__label" style="float:left;" for="girl">
-                    <div class="weui-cell__hd">
-                      <input type="radio" class="weui-check" name="sexradio" id="girl" value="女">
-                      <i class="weui-icon-checked"></i>
-                    </div>
-                    <div class="weui-cell__bd">
-                      <p>女</p>
-                    </div>
-                  </label>
+                <div class="weui-cells_checkbox">
+                    <label class="weui-cell weui-check__label" style="float:left" for="boy">
+                        <div class="weui-cell__hd">
+                            <input type="radio" class="weui-check" name="sexradio" id="boy" value="男" checked="checked">
+                            <i class="weui-icon-checked"></i>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p>男</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="weui-cells_checkbox">
+                    <label class="weui-cell weui-check__label" style="float:left;" for="girl">
+                        <div class="weui-cell__hd">
+                            <input type="radio" class="weui-check" name="sexradio" id="girl" value="女">
+                            <i class="weui-icon-checked"></i>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p>女</p>
+                        </div>
+                    </label>
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
@@ -86,7 +86,7 @@
             <div class="gray"></div>
             <a class="weui-cell weui-cell_access login-out" href="javascript:;">
                 <div class="weui-cell__bd" style="text-align:center; ">
-                    <p>退出登陆</p>
+                    <p>退出登录</p>
                 </div>
             </a>
             <div class="foot"></div>
@@ -94,159 +94,162 @@
     </div>
 </body>
 <script>
-$(function () {
-        $("#data-pick").calendar();
+$(function() {
+    $("#data-pick").calendar();
 
-        $(".login-out").click(function () {
-            $(window).attr("location","login.html");
-        });
+    $(".login-out").click(function() {
+        $(window).attr("location", "login.html");
+    });
 
-        $(".back").click(function () {
-            postPersionData();
-        });
+    $(".back").click(function() {
+        postPersionData();
+    });
 
 
-        //上传头像
-        BenUploadUtils({
-                dom: ".uploadfile",     // 需要挂在的DOM
-                url: "",         // 上传的服务器地址
-                limitSize: 10240000,    // 1024000kb
-                limitFormat: 'gif,jpg,jpeg,png,GIF,JPG,PNG', // 使用什么格式
-                limitSizeCallback: function(err){   // 限制大小的回调事件
-                    // console.log(err);
-                },
-                limitFormatCallback: function(err){ // 限制格式的回调事件
-                    // console.log(err);
-                },
-                onUploadBeforeCallback: function(res){  // 上传图片之前的回调事件
-                    // console.log(res);
-                },
-                onUploadSuccessCallback: function(res){ // 上传成功的回调事件
-                    console.log(res);
-                //  $.ajax({    
-                //     url:" http://120.27.215.48:8081/duifang/servlet/Pic",
-                //     data:"folder_id=folder_id",
-                //     type:"post",
-                //     success:function (res,status) {
-                //         console.log(res);
-                        
-                //     }
-                // });
-                },
-                onUploadFailCallback: function(res){ // 上传失败的回调事件
-                    // console.log(res);
-                },
-                onUploadAlwaysCallback: function(res){  // 上传无论什么结果的回调事件
-                    // console.log(res);
-                },
-                onRenderResizerBefore: function(res){   // 压缩之前的回调事件
-                    // $("#preview").attr("src",res);
-                },
-                onRenderResizerAfter: function(res){    // 压缩之后的回调事件
-                    $(".userImg").attr("src",res);
+    //上传头像
+    BenUploadUtils({
+        dom: ".uploadfile", // 需要挂在的DOM
+        url: "", // 上传的服务器地址
+        limitSize: 10240000, // 1024000kb
+        limitFormat: 'gif,jpg,jpeg,png,GIF,JPG,PNG', // 使用什么格式
+        limitSizeCallback: function(err) { // 限制大小的回调事件
+            // console.log(err);
+        },
+        limitFormatCallback: function(err) { // 限制格式的回调事件
+            // console.log(err);
+        },
+        onUploadBeforeCallback: function(res) { // 上传图片之前的回调事件
+            // console.log(res);
+        },
+        onUploadSuccessCallback: function(res) { // 上传成功的回调事件
+            console.log(res);
+            //  $.ajax({    
+            //     url:" http://120.27.215.48:8081/duifang/servlet/Pic",
+            //     data:"folder_id=folder_id",
+            //     type:"post",
+            //     success:function (res,status) {
+            //         console.log(res);
+
+            //     }
+            // });
+        },
+        onUploadFailCallback: function(res) { // 上传失败的回调事件
+            // console.log(res);
+        },
+        onUploadAlwaysCallback: function(res) { // 上传无论什么结果的回调事件
+            // console.log(res);
+        },
+        onRenderResizerBefore: function(res) { // 压缩之前的回调事件
+            // $("#preview").attr("src",res);
+        },
+        onRenderResizerAfter: function(res) { // 压缩之后的回调事件
+            $(".userImg").attr("src", res);
+        }
+    }).init();
+
+    $(document).ready(function() {
+        $("#inputfile").change(function() {
+            var data = new FormData();
+            $.each($('#inputfile')[0].files, function(i, file) {
+                data.append('upload_file', file);
+            });
+            $.ajax({
+                url: 'http://120.27.215.48:8081/duifang/servlet/Pic',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false, //不可缺
+                processData: false, //不可缺
+                success: function(data) {
+                    data = $(data).html();
+
                 }
-            }).init();
-        
-    $(document).ready(function(){
-        $("#inputfile").change(function(){
-             var data = new FormData();
-             $.each($('#inputfile')[0].files, function(i, file) {
-                 data.append('upload_file', file);
-                });
-                 $.ajax({
-                     url:'http://120.27.215.48:8081/duifang/servlet/Pic',
-                     type:'POST',
-                     data:data,
-                     cache: false,
-                     contentType: false,    //不可缺
-                     processData: false,    //不可缺
-                     success:function(data){
-                         data = $(data).html();
-                         
-                     }
-                 });
+            });
         });
     });
 
-        
 
-        // 获取个人信息
-        var token = localStorage.getItem("token");
-        $.ajax({    
-            url:"http://120.27.215.48:8081/duifang/servlet/Operation",
-            data:"opt=userxinxi&tag=1&token="+token,
-            type:"post",
-            success:function (res,status) {
-                console.log(res);
-                if(res.data.realName){
-                  $(".userName").text(res.data.realName);
-                }else{
-                  $(".userName").text("请输入用户名");
-                }
-                if(res.data.name){
-                  $(".nickName").text(res.data.realName);
-                }else{
-                  $(".nickName").text("请输入昵称");
-                }
-                if(res.data.brithdate){
-                    $("#data-pick").val(res.data.brithdate);
-                }else{
-                    $("#data-pick").val("请选择出生日期");
-                }
-                if(res.data.sex=="女"){
-                    $("#girl").attr("checked","checked")
-                }else{
-                    $("#boy").attr("checked","checked")
-                }
-                $(".userImg").attr("src",res.data.pic);
+
+    // 获取个人信息
+    var token = localStorage.getItem("token");
+    $.ajax({
+        url: "http://120.27.215.48:8081/duifang/servlet/Operation",
+        data: "opt=userxinxi&tag=1&token=" + token,
+        type: "post",
+        success: function(res, status) {
+            console.log(res);
+            if (res.data.name) {
+                $(".userName").text(res.data.name);
+            } else {
+                $(".userName").text("请输入用户名");
+            }
+            if (res.data.nickname) {
+                $(".nickName").text(res.data.nickname);
+            } else {
+                $(".nickName").text("请输入昵称");
+            }
+            if (res.data.brithdate) {
+                $("#data-pick").val(res.data.brithdate);
+            } else {
+                $("#data-pick").val("请选择出生日期");
+            }
+            if (res.data.sex == "女") {
+                $("#girl").attr("checked", "checked")
+            } else {
+                $("#boy").attr("checked", "checked")
+            }
+            $(".userImg").attr("src", res.data.pic);
+        }
+    });
+
+    //修改个人信息
+    var pic = ''
+    var realname = ''
+    var nickname = ''
+    var sex = ''
+    var brithdate = ''
+    var token = localStorage.getItem("token");
+    $("#data-pick").change(function() {
+        brithdate = $("#data-pick").val();
+        console.log(brithdate)
+    });
+
+    function postPersionData() {
+        realname = $(".userName").text();
+        nickname = $(".nickName").text();
+        pic = $("#userImg")[0].src;
+        sex = $('input:radio[name="sexradio"]:checked').val();
+        $.ajax({
+            url: "http://120.27.215.48:8081/duifang/servlet/Operation",
+            data: "opt=upeuser&pic=" + pic + "&realname=" + realname + "&nickname=" + nickname + "&sex=" + sex + "&brithdate=" + brithdate + "&tag=1&token=" + token,
+            type: "post",
+            success: function(res, status) {
+                console.log(status);
+
             }
         });
+    }
 
-        //修改个人信息
-        var pic = ''
-        var realname = ''
-        var nickname = ''
-        var sex = ''
-        var brithdate =''
-        var token = localStorage.getItem("token");
-        $("#data-pick").change(function(){
-            brithdate = $("#data-pick").val();
-            console.log(brithdate)
+    //用户名
+    $(".parName").click(function() {
+        $.prompt("", "请输入用户名", function(key) {
+            $(".userName").text(key);
+            realname = $(".userName").text();
+        }, function() {
+            //点击取消后的回调函数
         });
-        function postPersionData(){
-            pic = $("#userImg")[0].src;
-            sex = $('input:radio[name="sexradio"]:checked').val();
-            $.ajax({    
-                url:"http://120.27.215.48:8081/duifang/servlet/Operation",
-                data:"opt=upeuser&pic="+pic+"&realname="+realname+"&nickname="+nickname+"&sex="+sex+"&brithdate="+brithdate+"&tag=1&token="+token,
-                type:"post",
-                success:function (res,status) {
-                    console.log(status);
-                    
-                }
-            });
-        }
-        
-        //用户名
-        $(".userName").click(function () {
-            $.prompt("","请输入用户名", function(key) {
-                $(".userName").text(key);
-                realname = $(".userName").text();
-            }, function() {
-              //点击取消后的回调函数
-            });
-        });
-        // 昵称
-        $(".nickName").click(function () {
-            $.prompt("","请输入昵称", function(key) {
-                $(".nickName").text(key);
-                nickname = $(".nickName").text();
-            }, function() {
+    });
+    // 昵称
+    $(".parNick").click(function() {
+        $.prompt("", "请输入昵称", function(key) {
+            $(".nickName").text(key);
+            nickname = $(".nickName").text();
+        }, function() {
 
-            });
         });
+    });
 
-        
+
 })
 </script>
 
@@ -277,42 +280,50 @@ $(function () {
     line-height: 2.5rem;
 }
 
-.back{
+.back {
     margin-left: 1em;
 }
-.back>img{
+
+.back>img {
     position: relative;
-    top:3px;
+    top: 3px;
 }
-.title{
-    margin-left:-2em;
+
+.title {
+    margin-left: -2em;
 }
-.weui-cells{
+
+.weui-cells {
     margin-top: 0;
 }
-.foot{
-     background: #EEEEEE;
-     height: 500px
+
+.foot {
+    background: #EEEEEE;
+    height: 500px
 }
-.gray{
+
+.gray {
     height: 10px;
     background: #EEEEEE;
 }
+
 .weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before {
     color: #4FAAFD;
 }
-.uploadImg{
-    position: relative;
 
+.uploadImg {
+    position: relative;
 }
-.uploadfile{
+
+.uploadfile {
     position: absolute;
     left: -10em;
     top: 0;
     height: 7em;
     opacity: 0;
 }
-.userImg{
+
+.userImg {
     height: 3em;
 }
 </style>

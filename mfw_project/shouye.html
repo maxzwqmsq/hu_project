@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <meta name="viewport" content="user-scalable=no" />   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/xiangqing.css">
+    <link rel="stylesheet" href="css/loupan.css">
+    <link rel="stylesheet" href="css/shouye.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/rem.js"></script>
     <script src="js/shouye.js"></script>
     <script src="js/swiper.min.js"></script>
-    <link rel="stylesheet" href="css/xiangqing.css">
-    <link rel="stylesheet" href="css/loupan.css">
-    <link rel="stylesheet" href="css/shouye.css">
 </head>
 <body>
     <div class="nav">
@@ -20,7 +22,8 @@
         <span class="pos-img">
             <img src="images/三角@3x.png" alt="">
         </span>
-        <input type="text" placeholder="请输入楼盘名称/开发商/地区/问题" onfocus="this.placeholder=' '" onblur="this.placeholder='请输入楼盘名称/开发商/地区/问题'">
+        <img class="search-bar" src="images/搜索@2x.png" alt="">
+        <input type="text" placeholder="&nbsp;&nbsp;请输入楼盘名称/开发商/地区/问题" onfocus="this.placeholder=' '" onblur="this.placeholder='请输入楼盘名称/开发商/地区/问题'">
         <span class="po_img personal">
             <img src="images/personal.png" alt="">
         </span>
@@ -34,15 +37,15 @@
     </div>
     <div class="sy_num">
         <p class="num_1">
-            <span class="zx"></span>
+            <span class="zx"></span><span class="zxcount">次</span>
             <span>咨询次数</span>
         </p>
         <p class="num_1">
-            <span class="fw"></span>
+            <span class="fw"></span><span class="fwcount">次</span>
             <span>服务次数</span>
         </p>
         <p class="num_1">
-            <span class="gw"></span>
+            <span class="gw"></span><span class="gwcount">位</span>
             <span>金牌顾问</span>
         </p>
         <div class="sy_toolsbar">
@@ -50,10 +53,10 @@
                 <img src="images/买房问答.png" alt="" class="sellquestion">
             </p>
             <p class="tools_1">
-                <img src="images/找房.png" alt="">
+                <img src="images/找房.png" alt="" class="loupan-cx">
             </p>
             <p class="tools_1">
-                <img src="images/在线咨询.png" alt="">
+                <img src="images/在线咨询.png" alt="" class="zaixianzx">
             </p>
         </div>
     </div>
@@ -93,7 +96,7 @@
     <div class="sy_rec">
         <p class="rec_title">
             <a>问问大家</a>
-            <span>更多<img src="images/more.png"></span>
+            <span class="gowenda">更多<img src="images/more.png"></span>
         </p>
         <ul class="rec_wt">
             <li class="wen">
@@ -110,7 +113,7 @@
     <div class="sy_rec">
         <p class="rec_title">
             <a>推荐楼盘</a>
-            <span>更多<img src="images/more.png"></span>
+            <span class="goloupan">更多<img src="images/more.png"></span>
         </p>
         <ul class="roomlist">
 
@@ -118,12 +121,36 @@
     </div>
 </body>
 </html>
+<style>
+    
+    .shiqu {
+        font-size: .4em;
+    }
+    .room_info p img {
+        margin-top: .1rem;
+        position: relative;
+        top: 6px;
+    }
+    .labelspan{
+        margin-top:.3rem!important;
+    }
+    .labelspan>span{
+        margin-left:.2em;
+    }
+    .room_info p {
+        margin: .1rem 0 0 0;
+    }
+</style>
 <!--页面跳转-->
 <script>
     $(function () {
         $(".tools_1 .sellquestion").click(function () {
             $(window).attr("location","sellquestion.html");
         });
+         $(".tools_1 .loupan-cx").click(function () {
+            $(window).attr("location","loupan.html");
+        });
+        
         $(".nav input").click(function () {
             $(window).attr("location","search.html");
         });
@@ -133,11 +160,25 @@
         $(".nav .position").click(function () {
             $(window).attr("location","position.html");
         });
+        //go wenda
+        $(".gowenda").click(function () {
+            $(window).attr("location","sellquestion.html");
+        });
+        $(".goloupan").click(function () {
+            $(window).attr("location","loupan.html");
+        });
+        $(".zaixianzx").click(function () {
+            $(window).attr("location","https://kefu.easemob.com/webim/im.html?configId=f69872ec-1264-4da1-aa01-230f2b4894e6");
+        });
     })
     var chooseCity = localStorage.getItem("chooseCity");
-    chooseCity = chooseCity.slice(0,2);
-    if(chooseCity){
+    if(chooseCity.length==3){
+        chooseCity = chooseCity.slice(0,2);
         $(".position").html(chooseCity);
+    }else if(chooseCity.length==4){
+        chooseCity = chooseCity.slice(0,3);
+        $(".position").html(chooseCity);
+        $(".position").css("text-align","left");
     }else{
         $(".position").html("南京");
     }

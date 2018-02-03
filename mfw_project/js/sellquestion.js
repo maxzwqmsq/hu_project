@@ -41,7 +41,7 @@ $(function() {
     $.ajax({
         url: url,
         type: "post",
-        data: "opt=selwentileibiao&userid=" + userid + "&auditing=1&type=1&page=0&row=10",
+        data: "opt=selwentileibiao&auditing=1&page=1&row=10",
         success: function(res, status) {
             console.log(res);
             for (var i = 0; i < res.data.length; i++) {
